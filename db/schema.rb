@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 2019_11_18_151849) do
     t.datetime "updated_at", null: false
     t.index ["trabi_id"], name: "index_bookings_on_trabi_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+
+  create_table "pictures", force: :cascade do |t|
+    t.bigint "trabi_id"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trabi_id"], name: "index_pictures_on_trabi_id"
   end
 
   create_table "trabis", force: :cascade do |t|
@@ -61,5 +68,6 @@ ActiveRecord::Schema.define(version: 2019_11_18_151849) do
 
   add_foreign_key "bookings", "trabis"
   add_foreign_key "bookings", "users"
+  add_foreign_key "pictures", "trabis"
   add_foreign_key "trabis", "users"
 end
