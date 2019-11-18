@@ -10,4 +10,5 @@ class Trabi < ApplicationRecord
   # records through the parent,
   # https://kolosek.com/carrierwave-upload-multiple-images/
   # accepts_nested_attributes_for :post_attachments
+  # //lkdjslkfj
 end
