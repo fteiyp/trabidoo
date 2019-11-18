@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
-<!-- Active URL: https://kitt.lewagon.com/db/3514 -->
+<!-- Active URL: https://kitt.lewagon.com/db/3503 -->
 <sql>
 <datatypes db="postgresql">
   <group label="Numeric" color="rgb(238,238,170)">
@@ -79,7 +79,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="596" y="172" name="trabants">
+<table x="596" y="172" name="trabis">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -107,21 +107,24 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="trabant_id" null="1" autoincrement="0">
+<row name="trabi_id" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
-<default>NULL</default><relation table="trabants" row="id" />
+<default>NULL</default><relation table="trabis" row="id" />
 </row>
 <row name="user_id" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
-<row name="date_start" null="1" autoincrement="0">
+<row name="start_date" null="1" autoincrement="0">
 <datatype>TIMESTAMP</datatype>
 <default>NULL</default></row>
-<row name="date_end" null="1" autoincrement="0">
+<row name="end_date" null="1" autoincrement="0">
 <datatype>DATE</datatype>
 <default>NULL</default></row>
-<row name="review" null="1" autoincrement="0">
+<row name="rating_review" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="content_review" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
@@ -135,9 +138,9 @@
 <row name="url" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="trabant_id" null="1" autoincrement="0">
+<row name="trabi_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="trabants" row="id" />
+<default>NULL</default><relation table="trabis" row="id" />
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
