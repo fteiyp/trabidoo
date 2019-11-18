@@ -75,6 +75,9 @@
 <row name="photo" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
+<row name="is_active" null="1" autoincrement="0">
+<datatype>BOOLEAN</datatype>
+<default>'true'</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -99,6 +102,9 @@
 <row name="description" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
+<row name="is_active" null="1" autoincrement="0">
+<datatype>BOOLEAN</datatype>
+<default>'true'</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -127,6 +133,9 @@
 <row name="content_review" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
+<row name="is_active" null="1" autoincrement="0">
+<datatype>BOOLEAN</datatype>
+<default>'true'</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -142,6 +151,9 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="trabis" row="id" />
 </row>
+<row name="is_active" null="1" autoincrement="0">
+<datatype>BOOLEAN</datatype>
+<default>'true'</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
