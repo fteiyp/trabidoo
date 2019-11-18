@@ -1,0 +1,2 @@
+class TrabisController < ApplicationController
+end
