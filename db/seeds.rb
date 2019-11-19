@@ -56,6 +56,7 @@ User.create(users_attributes)
 puts 'Creating trabis...'
 trabis_attributes = [
   {
+    title: 'Trabant GT',
     color: 'gray',
     year: '1968',
     location: '',
@@ -63,6 +64,7 @@ trabis_attributes = [
     user_id: 1
   },
   {
+    title: 'Red Storm',
     color: 'red',
     year: '1972',
     location: '',

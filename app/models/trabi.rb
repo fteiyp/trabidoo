@@ -4,7 +4,7 @@ class Trabi < ApplicationRecord
 
   has_many :bookings
 
-  validates :user_id, :color, presence: true
+  validates :title, :user_id, :color, presence: true
   validates :year, presence: true, inclusion: { in: (1957..1990).to_a }, numericality: { only_integer: true }
   # Nested attributes will allow us to save attributes on associated
   # records through the parent,
