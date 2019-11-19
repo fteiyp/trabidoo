@@ -15,9 +15,10 @@
    <!--  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div> -->
 </div>
-
- <%= link_to 'Edit Trabant', edit_trabi_path, class: "btn btn-small btn-warning"%>
- <%= link_to 'Back to Search Trabants', trabis_path, class: "btn btn-small btn-primary"%>
- <%= link_to "Delete", trabi_path(@trabi), class: "btn btn-small btn-danger",
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
+<div class="m-3">
+   <%= link_to 'Edit Trabant', edit_trabi_path, class: "btn btn-small btn-warning mr-2"%>
+   <%= link_to 'Back to Search Trabants', trabis_path, class: "btn btn-small btn-primary mr-2"%>
+   <%= link_to "Delete", trabi_path(@trabi), class: "btn btn-small btn-danger",
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+</div>
