@@ -5,7 +5,7 @@
   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
   <div class="card-product-infos">
     <h2><%= link_to trabi.title, trabi_path(trabi) %></h2>
-    <p class="card-product-description"> <%= trabi.description %> </p>
+    <p class="truncate-overflow"> <%= trabi.description[0..200] %> </p>
   </div>
 
 </div>
