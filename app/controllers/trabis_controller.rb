@@ -29,6 +29,13 @@ class TrabisController < ApplicationController
     redirect_to trabis_path(@trabi)
   end
 
+  def destroy
+    @trabi = Trabi.find(params[:id])
+    @trabi.destroy
+
+    redirect_to trabis_path(@trabi)
+  end
+
   private
 
   def trabi_params
