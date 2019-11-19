@@ -1,10 +1,11 @@
 class TrabisController < ApplicationController
+  before_action :set_trabi, only: [:show, :edit, :update, :destroy]
+
   def index
     @trabis = Trabi.all
   end
 
   def show
-    @trabi = Trabi.find(params[:id])
   end
 
   def new
@@ -17,26 +18,24 @@ class TrabisController < ApplicationController
     redirect_to trabis_path(@trabi)
   end
 
-  # get trabis/id/edit
   def edit
-    @trabi = Trabi.find(params[:id])
   end
 
-  # patch trabis/id
   def update
-    @trabi = Trabi.find(params[:id])
     @trabi.update(trabi_params)
     redirect_to trabis_path(@trabi)
   end
 
   def destroy
-    @trabi = Trabi.find(params[:id])
     @trabi.destroy
-
     redirect_to trabis_path(@trabi)
   end
 
   private
+
+  def set_trabi
+    @trabi = Trabi.find(params[:id])
+  end
 
   def trabi_params
     params.require(:trabi).permit(:title, :description, :year, :color, :user_id)
