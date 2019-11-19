@@ -41,7 +41,7 @@
     <type label="Inet CIDR Addr" length="0" sql="CIDR" quote="'"/>
     <type label="Geometry" length="0" sql="GEOMETRY" quote="'"/>
   </group>
-</datatypes><table x="165" y="195" name="users">
+</datatypes><table x="177" y="289" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -82,14 +82,13 @@
 <part>id</part>
 </key>
 </table>
-<table x="596" y="172" name="trabis">
+<table x="620" y="267" name="trabis">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="user_id (owner)" null="1" autoincrement="0">
-<datatype>TEXT</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
+<row name="title" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>'NULL'</default></row>
 <row name="color" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
@@ -105,22 +104,18 @@
 <row name="is_active" null="1" autoincrement="0">
 <datatype>BOOLEAN</datatype>
 <default>'true'</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="364" y="314" name="bookings">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="trabi_id" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default><relation table="trabis" row="id" />
-</row>
 <row name="user_id" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="402" y="130" name="bookings">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
 <row name="start_date" null="1" autoincrement="0">
 <datatype>TIMESTAMP</datatype>
 <default>NULL</default></row>
@@ -136,24 +131,32 @@
 <row name="is_active" null="1" autoincrement="0">
 <datatype>BOOLEAN</datatype>
 <default>'true'</default></row>
+<row name="trabi_id" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><relation table="trabis" row="id" />
+</row>
+<row name="user_id" null="1" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="802" y="311" name="pictures">
+<table x="820" y="198" name="pictures">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="url" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
+<row name="is_active" null="1" autoincrement="0">
+<datatype>BOOLEAN</datatype>
+<default>'true'</default></row>
 <row name="trabi_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="trabis" row="id" />
 </row>
-<row name="is_active" null="1" autoincrement="0">
-<datatype>BOOLEAN</datatype>
-<default>'true'</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
