@@ -1,18 +1,15 @@
-<!-- <h1><%= @trabis.title %></h1>
-
- -->
-
 <!-- Card Product  -->
 <div class="card-trip">
   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
   <div class="card-trip-infos">
     <div>
-      <h2><%= @trabis.title %></h2>
-      <p><%= @trabis.description %></p>
+      <h2><%= @trabi.title %></h2>
+      <p><%= @trabi.description %></p>
     </div>
     <!-- <h2 class="card-trip-pricing">£99.99</h2> -->
    <!--  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div> -->
 </div>
 
- <%= link_to 'Back to Search Trabants', trabis_path, class: "btn btn-small btn-warning"%>
+ <%= link_to 'Edit Trabant', edit_trabi_path, class: "btn btn-small btn-warning"%>
+ <%= link_to 'Back to Search Trabants', trabis_path, class: "btn btn-small btn-primary"%>

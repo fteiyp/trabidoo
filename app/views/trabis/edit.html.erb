@@ -1,0 +1,13 @@
+<h1>Edit @trabi.title <%=  %></h1>
+
+<%= simple_form_for [@trabi] do |t| %>
+  <%= t.input :title, label: 'Title' %>
+  <%= t.input :description, label: 'Description' %>
+  <%= t.input :year, label: 'Year' %>
+  <%= t.input :color, label: 'Color' %>
+  <%= t.input :user_id, as: :hidden, input_html: {value: current_user[:id] } %>
+
+  <%= t.submit "Edit Trabant", class: "btn btn-success" %>
+<% end %>
+
+ <%= link_to 'cancel', trabis_path, class: "btn btn-small btn-danger"%>

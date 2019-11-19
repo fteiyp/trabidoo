@@ -4,7 +4,7 @@ class TrabisController < ApplicationController
   end
 
   def show
-    @trabis = Trabi.find(params[:id])
+    @trabi = Trabi.find(params[:id])
   end
 
   def new
@@ -14,6 +14,18 @@ class TrabisController < ApplicationController
   def create
     @trabi = Trabi.new(trabi_params)
     @trabi.save
+    redirect_to trabis_path(@trabi)
+  end
+
+  # get trabis/id/edit
+  def edit
+    @trabi = Trabi.find(params[:id])
+  end
+
+  # patch trabis/id
+  def update
+    @trabi = Trabi.find(params[:id])
+    @trabi.update(trabi_params)
     redirect_to trabis_path(@trabi)
   end
 
