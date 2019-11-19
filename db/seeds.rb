@@ -14,16 +14,16 @@ Booking.destroy_all
 puts 'Creating users...'
 users_attributes = [
   {
-    first_name:     'Bill',
-    last_name:      'Clinton',
-    email:          'billy@example.com',
-    password:       'monica',
+    first_name:     'Guy',
+    last_name:      'Fieri',
+    email:          'guyfieri@example.com',
+    password:       'food',
     phone_number:   '6173653787',
-    street_address: '22 Washington Ave.',
-    city_address:   'Washinton',
+    street_address: '34 Something Ave.',
+    city_address:   'New York',
     zip_address:    '12345',
     country_address: 'United States',
-    photo:           '',
+    photo:           'https://cdn.vox-cdn.com/thumbor/dal2kKDXXU-BmDVACTLOS47UPas=/0x0:2160x3000/1200x800/filters:focal(982x778:1326x1122)/cdn.vox-cdn.com/uploads/chorus_image/image/59023747/82665331.jpg.0.jpg',
   },
   {
     first_name:     'Armin',
@@ -48,6 +48,18 @@ users_attributes = [
     zip_address:    '10405',
     country_address: 'United States',
     photo:          ''
+  },
+  {
+    first_name:     'Bill',
+    last_name:      'Clinton',
+    email:          'billy@example.com',
+    password:       'monica',
+    phone_number:   '6173653787',
+    street_address: '22 Washington Ave.',
+    city_address:   'Washinton',
+    zip_address:    '12345',
+    country_address: 'United States',
+    photo:           '',
   }
 
 ]
