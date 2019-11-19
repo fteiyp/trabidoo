@@ -1,0 +1,73 @@
+<div class="row justify-content-center my-3">
+  <div class="col-md-10">
+
+    <h1 class="text-left">Create a new booking</h1>
+    <hr>
+    <!-- TODO: insert @trabi.title -->
+    <h3> <%= @trabi.title %> </h3>
+
+    <!-- TODO: NEED TO SORT OUT USER OWNER AND USER RENTER HERE AND CONTROLLER -->
+    <div>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <!-- TODO: insert @trabi.image1 -->
+            <img class="d-block w-100" src="https://cdn.motor1.com/images/mgl/xxobp/s1/trabant-601-by-vilner.jpg" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <!-- TODO: insert @trabi.image2 -->
+            <img class="d-block w-100" src="https://cdn.motor1.com/images/mgl/y8NPl/s1/trabant-601-by-vilner.jpg" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <!-- TODO: insert @trabi.image3 -->
+            <img class="d-block w-100" src="https://cdn.motor1.com/images/mgl/J7X96/s1/trabant-601-by-vilner.jpg" alt="Third slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="row justify-content-around my-3">
+      <div class="my-3">
+        <%= form_for(@booking) do |f| %>
+          <%= hidden_field_tag 'user_id', @user.id %>
+          <%= hidden_field_tag 'trabi_id', @trabi.id %>
+          <div class="form-group">
+            <%= f.label :start_date %>
+            <%= f.date_field :start_date, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :end_date %>
+            <%= f.date_field :end_date, class: 'form-control' %>
+          </div>
+          <%= f.submit class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+
+      <div class="card" style="width: 24rem;">
+        <div class="d-flex align-items-center">
+
+          <!-- TODO: change user to be current_user from session -->
+          <img class="rounded-circle ml-3" width="150" height=150 src=<%= @user.photo %> >
+          <div class="card-body">
+            <h5 class="card-title"> <strong> <%= @user.first_name %> </strong> </h5>
+            <p class="card-text"> <%= @trabi.description %> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

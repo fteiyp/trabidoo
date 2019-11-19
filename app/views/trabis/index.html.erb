@@ -1,7 +1,15 @@
-<h1>All Trabants:</h1>
+<h1>Trabants:</h1>
 
-<div class="list">
-    <% @trabis.each do |trabi| %>
-        <li class="list_link_style"><%= link_to trabi.id, trabi_path(trabi) %></li>
-    <% end %>
+ <% @trabis.each do |trabi| %>
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2><%= link_to trabi.title, trabi_path(trabi) %></h2>
+    <p class="truncate-overflow"> <%= trabi.description[0..200] %> </p>
   </div>
+
+</div>
+<% end %>
+
+
+ <%= link_to 'Create Trabant', new_trabi_path, class: "btn btn-small btn-success"%>
