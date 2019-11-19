@@ -1,3 +1,23 @@
-<h1>Trabi Show Page [header pending]</h1>
+<!-- Card Product  -->
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= @trabi.title %></h2>
+      <p>Color: <%= @trabi.color %></p>
+      <p>Year: <%= @trabi.year %></p>
+      <% if @trabi.location %>
+      <p> @trabi.location </p>
+      <% end %>
+      <p>About: <%= @trabi.description %></p>
+    </div>
+    <!-- <h2 class="card-trip-pricing">£99.99</h2> -->
+   <!--  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div> -->
+</div>
 
-
+ <%= link_to 'Edit Trabant', edit_trabi_path, class: "btn btn-small btn-warning"%>
+ <%= link_to 'Back to Search Trabants', trabis_path, class: "btn btn-small btn-primary"%>
+ <%= link_to "Delete", trabi_path(@trabi), class: "btn btn-small btn-danger",
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
