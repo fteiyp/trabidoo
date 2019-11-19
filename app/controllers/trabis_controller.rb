@@ -23,10 +23,11 @@ class TrabisController < ApplicationController
   end
 
   # patch trabis/id
-  # def update
-  #   @trabi = Trabi.find(params[:id])
-
-  # end
+  def update
+    @trabi = Trabi.find(params[:id])
+    @trabi.update(trabi_params)
+    redirect_to trabis_path(@trabi)
+  end
 
   private
 
