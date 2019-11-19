@@ -17,13 +17,37 @@ users_attributes = [
     first_name:     'Guy',
     last_name:      'Fieri',
     email:          'guyfieri@example.com',
-    password:       'food',
+    password:       'password',
     phone_number:   '6173653787',
     street_address: '34 Something Ave.',
     city_address:   'New York',
     zip_address:    '12345',
     country_address: 'United States',
     photo:           'https://cdn.vox-cdn.com/thumbor/dal2kKDXXU-BmDVACTLOS47UPas=/0x0:2160x3000/1200x800/filters:focal(982x778:1326x1122)/cdn.vox-cdn.com/uploads/chorus_image/image/59023747/82665331.jpg.0.jpg',
+  },
+  {
+    first_name:     'Bill',
+    last_name:      'Clinton',
+    email:          'billclinton@example.com',
+    password:       'password',
+    phone_number:   '6173653787',
+    street_address: '22 Washington Ave.',
+    city_address:   'Washinton',
+    zip_address:    '12345',
+    country_address: 'United States',
+    photo:           'https://pbs.twimg.com/profile_images/1187747845664923648/i_zlFpOX_400x400.jpg',
+  },
+  {
+    first_name:     'Terry',
+    last_name:      'Crews',
+    email:          'terrycrews@example.com',
+    password:       'password',
+    phone_number:   '1234567890',
+    street_address: '53 Doow St.',
+    city_address:   'Cambridge',
+    zip_address:    '10405',
+    country_address: 'United States',
+    photo:          'https://www.biography.com/.image/t_share/MTE5NDg0MDYwNjkzMjY3OTgz/terry-crews-headshot-600x600jpg.jpg'
   },
   {
     first_name:     'Armin',
@@ -36,34 +60,9 @@ users_attributes = [
     zip_address:    '32145',
     country_address: 'The Netherlands',
     photo:          ''
-  },
-  {
-    first_name:     'Reid',
-    last_name:      'Shea',
-    email:          'reidemail@example.com',
-    password:       'mypassword',
-    phone_number:   '1234567890',
-    street_address: '53 Doow St.',
-    city_address:   'Cambridge',
-    zip_address:    '10405',
-    country_address: 'United States',
-    photo:          ''
-  },
-  {
-    first_name:     'Bill',
-    last_name:      'Clinton',
-    email:          'billy@example.com',
-    password:       'monica',
-    phone_number:   '6173653787',
-    street_address: '22 Washington Ave.',
-    city_address:   'Washinton',
-    zip_address:    '12345',
-    country_address: 'United States',
-    photo:           '',
   }
-
 ]
-User.create(users_attributes)
+User.create!(users_attributes)
 
 puts 'Creating trabis...'
 trabis_attributes = [

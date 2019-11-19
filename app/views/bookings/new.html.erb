@@ -1,11 +1,10 @@
 <div class="row justify-content-center my-3">
-  <div class="col-md-8">
+  <div class="col-md-10">
 
     <h1 class="text-left">Create a new booking</h1>
     <hr>
-    <%= @user.first_name %>
     <!-- TODO: insert @trabi.title -->
-    <h3> John's 1965 Grey Trabant </h3>
+    <h3> <%= @trabi.title %> </h3>
 
     <div>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -42,6 +41,8 @@
     <div class="row justify-content-around my-3">
       <div class="my-3">
         <%= form_for(@booking) do |f| %>
+          <%= hidden_field_tag 'user_id', @user.id %>
+          <%= hidden_field_tag 'trabi_id', @trabi.id %>
           <div class="form-group">
             <%= f.label :start_date %>
             <%= f.date_field :start_date, class: 'form-control' %>
@@ -57,10 +58,11 @@
       <div class="card" style="width: 24rem;">
         <div class="d-flex align-items-center">
 
+          <!-- TODO: change user to be current_user from session -->
           <img class="rounded-circle ml-3" width="150" height=150 src=<%= @user.photo %> >
           <div class="card-body">
-            <h5 class="card-title"> <strong> John: </strong> </h5>
-            <p class="card-text"> This Trabant was given to me by my Uncle 14 years ago, it still runs in great shape and is an awesome vehicle! </p>
+            <h5 class="card-title"> <strong> <%= @user.first_name %> </strong> </h5>
+            <p class="card-text"> <%= @trabi.description %> </p>
           </div>
         </div>
       </div>
