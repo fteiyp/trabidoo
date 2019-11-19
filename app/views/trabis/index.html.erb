@@ -4,8 +4,8 @@
 <div class="card-product">
   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
   <div class="card-product-infos">
-    <h2><%= trabi.title %></h2>
-    <p> <%= trabi.description %> </p>
+    <h2><%= link_to trabi.title, trabi_path(trabi) %></h2>
+    <p class="card-product-description"> <%= trabi.description %> </p>
   </div>
 
 </div>

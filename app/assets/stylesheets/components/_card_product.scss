@@ -30,3 +30,10 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
+.card-product-description {
+  max-width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
