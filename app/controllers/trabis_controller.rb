@@ -20,6 +20,6 @@ class TrabisController < ApplicationController
   private
 
   def trabi_params
-    params.require(:trabi).permit(:title, :description)
+    params.require(:trabi).permit(:title, :description, :year)
   end
 end

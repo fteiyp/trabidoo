@@ -1,0 +1,10 @@
+<h1>Add new Trabant</h1>
+
+<%= simple_form_for [@trabi] do |t| %>
+  <%= t.input :title, label: 'Title' %>
+  <%= t.input :description, label: 'Description' %>
+  <%= t.input :year, label: 'Year' %>
+
+  <%= t.submit "add a Trabant", class: "btn btn-success" %>
+<% end %>
+
