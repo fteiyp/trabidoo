@@ -4,6 +4,8 @@
   <%= t.input :title, label: 'Title' %>
   <%= t.input :description, label: 'Description' %>
   <%= t.input :year, label: 'Year' %>
+  <%= t.input :color, label: 'Color' %>
+  <%= t.input :user_id, as: :hidden, input_html: {value: current_user[:id] } %>
 
   <%= t.submit "add a Trabant", class: "btn btn-success" %>
 <% end %>

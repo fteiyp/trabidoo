@@ -14,12 +14,12 @@ class TrabisController < ApplicationController
   def create
     @trabi = Trabi.new(trabi_params)
     @trabi.save
-    redirect_to trabi_path(@trabi)
+    redirect_to trabis_path(@trabi)
   end
 
   private
 
   def trabi_params
-    params.require(:trabi).permit(:title, :description, :year)
+    params.require(:trabi).permit(:title, :description, :year, :color, :user_id)
   end
 end
