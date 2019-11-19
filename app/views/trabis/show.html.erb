@@ -1,0 +1,9 @@
+<h1><%= "#{@trabi.year} #{@trabi.color} Trabant" %></h1>
+
+<h2><%= @trabi.description %></h2>
+
+<%= cl_image_tag Picture.find(@trabi.pictures.last.id), height: 300, width: 400, crop: :fill %>
+
+
+
+<%= link_to "All Trabis", trabis_path %>

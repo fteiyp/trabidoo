@@ -1,0 +1,14 @@
+<h1>All Trabis:</h1>
+
+<ul>
+<% @trabis.each do |trabi| %>
+
+<li>
+  <%= link_to "#{trabi.year} #{trabi.color} Trabant", trabi_path(trabi) %>
+</li>
+
+<% end %>
+</ul>
+
+
+<%= link_to "Add your own Trabi", new_trabi_path %>

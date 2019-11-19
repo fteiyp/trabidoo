@@ -1,0 +1,15 @@
+<h1>Add a new Trabi</h1>
+
+<div class="container">
+  <%= simple_form_for([@trabi]) do |f| %>
+    <%= f.input :year %>
+    <%= f.input :color %>
+    <%= f.input :description %>
+    <%= f.input :user_id, as: :hidden, input_html: { value: current_user[:id] } %>
+      <div class="field">
+       <%= f.label :picture %><br>
+       <%= f.file_field :picture, :multiple => true, name: "pictures[url][]" %>
+      </div>
+    <%= f.submit %>
+  <% end %>
+</div>
