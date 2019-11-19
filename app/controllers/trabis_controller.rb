@@ -18,14 +18,15 @@ class TrabisController < ApplicationController
   end
 
   # get trabis/id/edit
-  # def edit
-  #   @trabi =
-  # end
+  def edit
+    @trabi = Trabi.find(params[:id])
+  end
 
   # patch trabis/id
-  def update
+  # def update
+  #   @trabi = Trabi.find(params[:id])
 
-  end
+  # end
 
   private
 
