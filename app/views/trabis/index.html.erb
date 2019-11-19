@@ -1,0 +1,7 @@
+<h1>All Trabants:</h1>
+
+<div class="list">
+    <% @trabis.each do |trabi| %>
+        <li class="list_link_style"><%= link_to trabi.id, trabi_path(trabi) %></li>
+    <% end %>
+  </div>
