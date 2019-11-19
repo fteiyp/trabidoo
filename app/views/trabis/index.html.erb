@@ -1,18 +1,11 @@
-<h1>All Trabants:</h1>
-
-<div class="list">
-    <% @trabis.each do |trabi| %>
-        <li class="list_link_style"><%= link_to trabi.title, trabi_path(trabi) %></li>
-    <% end %>
-  </div>
-
+<h1>Trabants:</h1>
 
  <% @trabis.each do |trabi| %>
 <div class="card-product">
   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
   <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
+    <h2><%= trabi.title %></h2>
+    <p> <%= trabi.description %> </p>
   </div>
 
 </div>
