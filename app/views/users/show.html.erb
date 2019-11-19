@@ -22,8 +22,7 @@
   </div>
   <div id="user-info-tab" class="bg-white p-4"">
     <div style="width: 60%">
-
-    <%= simple_form_for(@user, method: :patch, url: user_path(@user)) do |f| %>
+      <%= simple_form_for(@user, method: :patch, url: user_path(@user)) do |f| %>
 
       <div class="form-group">
         <%= f.label "User info:" %>
@@ -68,14 +67,17 @@
 
       <%= f.button :submit, "Update", class: 'btn btn-primary' %>
     <% end %>
-  </div>
+
+    </div>
 
   </div>
 
   <div id="bookings-tab" class="bg-white p-4">
     <h5>Current bookings</h5>
     <% if @current_bookings == [] %>
-      <em>No current bookings</em>
+      <div class="mt-3 mb-5">
+        <em>No current bookings</em>
+      </div>
     <% else %>
 
       <table class="table">
@@ -116,7 +118,9 @@
 
     <h5>Archived bookings</h5>
     <% if @archived_bookings == [] %>
-      <em>No archived bookings</em>
+      <div class="mt-3 mb-5">
+        <em>No current bookings</em>
+      </div>
     <% else %>
 
       <table class="table">
