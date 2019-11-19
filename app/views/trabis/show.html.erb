@@ -4,7 +4,12 @@
   <div class="card-trip-infos">
     <div>
       <h2><%= @trabi.title %></h2>
-      <p><%= @trabi.description %></p>
+      <p>Color: <%= @trabi.color %></p>
+      <p>Year: <%= @trabi.year %></p>
+      <% if @trabi.location %>
+      <p> @trabi.location </p>
+      <% end %>
+      <p>About: <%= @trabi.description %></p>
     </div>
     <!-- <h2 class="card-trip-pricing">£99.99</h2> -->
    <!--  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
