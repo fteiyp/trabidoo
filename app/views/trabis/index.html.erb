@@ -13,3 +13,6 @@
 
 
  <%= link_to 'Create Trabant', new_trabi_path, class: "btn btn-small btn-success"%>
+ <%= link_to "Delete", trabi_path(@trabi), class: "btn btn-small btn-danger",
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
