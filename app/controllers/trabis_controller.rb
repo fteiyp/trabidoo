@@ -3,6 +3,11 @@ class TrabisController < ApplicationController
 
   def index
     @trabis = Trabi.all
+    @search = params["search"]
+    if @search.present?
+      @location = @search["location"]
+      @trabis = Trabi.where(Trabi.where("location ILIKE ?", "%#{@location}%"))
+    end
   end
 
   def show

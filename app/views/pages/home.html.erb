@@ -1,2 +1,32 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="main-bg">
+  <div class="main-bg-blur">
+    <div class="container">
+      <div class="home-vert-boxes">
+        <div class="row">
+
+
+
+          <div class="col-8">
+            <div class="rounded-lg search-box d-flex flex-column justify-content-around align-items-center">
+              <h1>Rent a Trabi - live the dream!</h1>
+              <%= simple_form_for :search, url: trabis_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+                <%= f.input :location, label: "Where are you?", input_html: {value: "Berlin"} %>
+                <%= f.submit "Search", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+
+
+          <div class="col-4">
+            <div class="info-box rounded-lg" style="background-color:white">
+            <p>The <strong>Trabant</strong> (/ˈtræbænt, -ənt/; German: [tʁaˈbant]) is an automobile which was produced from 1957 to 1990 by former East German car manufacturer VEB Sachsenring Automobilwerke Zwickau. It is often seen as symbolic of the former East Germany and the collapse of the Eastern Bloc in general.</p>
+            <p><a href="https://en.wikipedia.org/wiki/Trabant">(Wikipedia)</a></p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
