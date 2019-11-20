@@ -18,47 +18,82 @@ const inputCity = document.getElementById("input-city");
 const inputZip = document.getElementById("input-zip");
 const inputCountry = document.getElementById("input-country");
 
-// Dropzone.autoDiscover = false;
-
-console.log(window.location.pathname);
-
 userInfoLink.classList.add('active', 'bg-white');
 userInfoTab.style.display = 'block';
 bookingTab.style.display = 'none';
 trabisTab.style.display = 'none';
 
-console.log(userInfoLink);
+const switchTab = (tab) => {
 
-userInfoLink.addEventListener("click", (event) => {
-  userInfoTab.style.display = 'block';
-  bookingTab.style.display = 'none';
-  trabisTab.style.display = 'none';
+  if (tab  === 'user-info-link') {
+    userInfoTab.style.display = 'block';
+    bookingTab.style.display = 'none';
+    trabisTab.style.display = 'none';
 
-  userInfoLink.classList.add('active', 'bg-white');
-  bookingLink.classList.remove('active', 'bg-white');
-  trabisLink.classList.remove('active', 'bg-white');
-});
+    userInfoLink.classList.add('active', 'bg-white');
+    bookingLink.classList.remove('active', 'bg-white');
+    trabisLink.classList.remove('active', 'bg-white');
+  } else if (tab  === 'bookings-link') {
+    userInfoTab.style.display = 'none';
+    bookingTab.style.display = 'block';
+    trabisTab.style.display = 'none';
 
-bookingLink.addEventListener("click", (event) => {
-  userInfoTab.style.display = 'none';
-  bookingTab.style.display = 'block';
-  trabisTab.style.display = 'none';
+    userInfoLink.classList.remove('active','bg-white');
+    bookingLink.classList.add('active', 'bg-white');
+    trabisLink.classList.remove('active', 'bg-white');
+  } else {
+    userInfoTab.style.display = 'none';
+    bookingTab.style.display = 'none';
+    trabisTab.style.display = 'block';
 
-  userInfoLink.classList.remove('active','bg-white');
-  bookingLink.classList.add('active', 'bg-white');
-  trabisLink.classList.remove('active', 'bg-white');
-});
+    userInfoLink.classList.remove('active', 'bg-white');
+    bookingLink.classList.remove('active', 'bg-white');
+    trabisLink.classList.add('active', 'bg-white');
+  }
 
-trabisLink.addEventListener("click", (event) => {
-  userInfoTab.style.display = 'none';
-  bookingTab.style.display = 'none';
-  trabisTab.style.display = 'block';
+};
 
-  userInfoLink.classList.remove('active', 'bg-white');
-  bookingLink.classList.remove('active', 'bg-white');
-  trabisLink.classList.add('active', 'bg-white');
-});
+let url = location.href
 
+const tabClicked = (event) => {
+  let newUrl;
+
+  switchTab(event.target.getAttribute("id"));
+  const hash = event.target.getAttribute("href");
+  let prefix = url.split("#")[0];
+
+  if (prefix[prefix.length - 1] === "/") {
+    prefix = prefix.substring(0, prefix.length - 1)
+  }
+
+  newUrl = prefix + hash;
+
+  history.replaceState(null, null, newUrl);
+};
+
+userInfoLink.addEventListener("click", tabClicked);
+bookingLink.addEventListener("click", tabClicked);
+trabisLink.addEventListener("click", tabClicked);
+
+if (location.hash) {
+
+  const hash = url.split("#");
+  let tabLink =hash[1];
+
+  if (tabLink[tabLink.length - 1] === "/") {
+    tabLink = tabLink.substring(0, tabLink.length - 1)
+  }
+
+  switchTab(document.querySelector('#myTab a[href="#'+tabLink+'"]').getAttribute("id"));
+  console.log(document.querySelector('#myTab a[href="#'+tabLink+'"]').getAttribute("id"));//.tab("show");
+  url = location.href.replace(/\/#/, "#");
+  history.replaceState(null, null, url);
+  setTimeout(() => {
+    window.scrollTo(0,0);
+  }, 400);
+}
+
+const tab = document.querySelector('a[data-toggle="tab"]')
 
 // $(function() {
 
@@ -73,8 +108,7 @@ trabisLink.addEventListener("click", (event) => {
     autoProcessQueue: false,
     uploadMultiple: true,
     accept: function(file, done) {
-      //dropZoneElement.style.height = "auto";
-      // $("div#files-field").css({"height": "auto"});
+
       done();
     },
     init: function() {

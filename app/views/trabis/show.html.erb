@@ -2,14 +2,37 @@
   <div class="row justify-content-center my-3">
     <div class="col-md-10">
 
-      <div>
-        <h2> <strong><%= @trabi.title %></strong> </h2>
-        <p> <strong>Color: </strong> <%= @trabi.color %></p>
-        <p> <strong> Year: </strong> <%= @trabi.year %></p>
-        <p> <strong>About: </strong> <%= @trabi.description %></p>
-        <% if @trabi.location %>
-        <p> <strong> Location: </strong> <%= @trabi.location %> </p>
-        <% end %>
+      <h2> <strong><%= @trabi.title %></strong> </h2>
+      <hr>
+      <div class="d-flex justify-content-around my-4">
+
+        <div class="w-50 card p-3 rounded-lg">
+          <p> <strong>Color: </strong> <%= @trabi.color %></p>
+          <p> <strong> Year: </strong> <%= @trabi.year %></p>
+          <p> <strong>About: </strong> <%= @trabi.description %></p>
+          <% if @trabi.location %>
+          <p> <strong> Location: </strong> <%= @trabi.location %> </p>
+          <% end %>
+        </div>
+
+        <div class="justify-content-around my-3">
+          <div class="my-3">
+            <%= form_for(@booking) do |f| %>
+              <%= hidden_field_tag 'user_id', @user.id %>
+              <%= hidden_field_tag 'trabi_id', @trabi.id %>
+              <div class="form-group">
+                <%= f.label :start_date %>
+                <%= f.date_field :start_date, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.label :end_date %>
+                <%= f.date_field :end_date, class: 'form-control' %>
+              </div>
+              <%= f.submit class: 'btn btn-primary', value: 'Book this Trabant' %>
+            <% end %>
+          </div>
+        </div>
+
       </div>
 
       <!-- TODO: NEED TO SORT OUT USER OWNER AND USER RENTER HERE AND CONTROLLER -->
@@ -50,13 +73,16 @@
         </div>
       </div>
 
-      <div class="d-flex justify-content-around my-5">
-        <%= link_to 'Edit Trabant', edit_trabi_path, class: "btn btn-small btn-primary"%>
-        <%= link_to 'Back to Search Trabants', trabis_path, class: "btn btn-small btn-primary"%>
-        <%= link_to "Delete", trabi_path(@trabi), class: "btn btn-small btn-primary",
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
+      <div class="card p-3 my-5">
+        <div class="d-flex justify-content-around ">
+          <%= link_to 'Edit Trabant', edit_trabi_path, class: "btn btn-small btn-primary"%>
+          <%= link_to 'Back to Search Trabants', trabis_path, class: "btn btn-small btn-primary"%>
+          <%= link_to "Delete", trabi_path(@trabi), class: "btn btn-small btn-primary",
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+        </div>
       </div>
+
 
     </div>
   </div>
