@@ -5,7 +5,7 @@
 
  <% @trabis.each do |trabi| %>
 <div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <img src="https://www.welt.de/img/motor/modelle/mobile157008093/8992509687-ci102l-w1024/GO03IHKES-1.jpg" />
   <div class="card-product-infos">
     <h2><%= link_to trabi.title, trabi_path(trabi) %></h2>
     <p class="truncate-overflow"> <%= trabi.description[0..200] %> </p>
@@ -15,5 +15,5 @@
 <% end %>
 
 
- <%= link_to 'Rent out Trabant', new_trabi_path, class: "btn btn-small btn-success"%>
+ <%= link_to 'Rent out Trabant', new_trabi_path, class: "btn btn-small btn-primary"%>
 </div>
