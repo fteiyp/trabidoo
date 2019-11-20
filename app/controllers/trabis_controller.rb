@@ -6,6 +6,9 @@ class TrabisController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
+    @trabi = Trabi.find(params[:id])
+    @user = User.find(@trabi.user_id)
   end
 
   def new

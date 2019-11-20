@@ -67,19 +67,19 @@ User.create!(users_attributes)
 puts 'Creating trabis...'
 trabis_attributes = [
   {
-    title: 'Trabant GT',
-    color: 'gray',
+    title: 'Trabant 601, 3rd Generation, 4-Speed Manual',
+    color: 'Tan',
     year: '1968',
-    location: '',
-    description: 'An automobile which was produced from 1957 to 1990 by former East German car manufacturer VEB Sachsenring Automobilwerke Zwickau. It is often seen as symbolic of the former East Germany and the collapse of the Eastern Bloc in general.',
+    location: 'Prenzlauerberg',
+    description: 'I bought this last year at an auction and have been fixing it up since this winter. I\'m a mechanic with a lot of cars but this is by far my favorite! You are welcome to rent my Trabi for an afternoon or a day or two.',
     user_id: 1
   },
   {
-    title: 'Red Storm',
-    color: 'red',
+    title: 'Classic Trabant P50, made by VEB Sachsenring',
+    color: 'Tan',
     year: '1972',
-    location: '',
-    description: 'My father gave this to me many years ago. He recieved it as a gift for his good service as a member of the Stasi :)',
+    location: 'Friedrichshain',
+    description: 'My father gave this to me many years ago. I often take it on rides around the city, and am an active member of the Berlin Trabant community. Always happy to rent it out for a few days to someone who would like the experience this classic vehicle!',
     user_id: 2
   }
 ]
