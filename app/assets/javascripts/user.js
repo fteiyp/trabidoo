@@ -8,7 +8,7 @@ const trabisLink = document.getElementById("trabis-link")
 const trabisTab = document.getElementById("trabis-tab")
 
 const dropZoneElement = document.getElementById("files-field");
-const userForm = document.getElementById('user-form');
+const userForm = document.querySelector("#user-info-tab form");//document.getElementById('user-form');
 const inputFirstName = document.getElementById("input-first-name");
 const inputLastName = document.getElementById("input-last-name");
 const inputEmail = document.getElementById("input-email");
@@ -20,7 +20,14 @@ const inputCountry = document.getElementById("input-country");
 
 // Dropzone.autoDiscover = false;
 
-console.log(window.location.pathname);
+console.log(inputFirstName);
+console.log(inputLastName);
+console.log(inputEmail);
+console.log(inputPhone);
+console.log(inputStreet);
+console.log(inputCity);
+console.log(inputZip);
+console.log(inputCountry);
 
 userInfoLink.classList.add('active', 'bg-white');
 userInfoTab.style.display = 'block';
