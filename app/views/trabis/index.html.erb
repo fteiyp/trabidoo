@@ -5,7 +5,11 @@
 
  <% @trabis.each do |trabi| %>
 <div class="card-product">
+<% if trabi.pictures.present? %>
+ <%= cl_image_tag trabi.pictures.first.url  %>
+ <% else %>
   <img src="https://cdn.motor1.com/images/mgl/xxobp/s1/trabant-601-by-vilner.jpg" />
+ <% end %>
   <div class="card-product-infos">
     <h2><%= link_to trabi.title, trabi_path(trabi) %></h2>
     <p class="truncate-overflow"> <%= trabi.description[0..200] %> </p>

@@ -7,6 +7,7 @@
   <%= t.input :year, label: 'Year' %>
   <%= t.input :color, label: 'Color' %>
   <%= t.input :user_id, as: :hidden, input_html: {value: current_user[:id] } %>
+  <%= t.input :pictures, as: :file, input_html: { multiple: true } %>
 
   <%= t.submit "Submit", class: "btn btn-success mb-2" %>
 <% end %>
