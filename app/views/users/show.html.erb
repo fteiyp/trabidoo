@@ -1,8 +1,8 @@
+<div class="mt-4 mb-4">
+  <h2>User: <%= @user.email %>  </h2>
+</div>
 
-<div class="container">
-  <div class="mt-4 mb-4">
-    <h2> <strong>User:</strong>  <%= @user.email %>  </h2>
-  </div>
+<div>
 
   <div>
     <ul id="myTab" class="nav nav-tabs">
@@ -18,13 +18,12 @@
       </li>
     </ul>
   </div>
-  <div id="user-info-tab" class="bg-white p-4 border">
+  <div id="user-info-tab" class="bg-white p-4">
     <div style="width: 60%" >
 
-      <form id="user-form" action="<%= user_path(@user) %>" method="POST">
+      <%= simple_form_for(@user) do |f| %>
         <h5>Personal data</h5>
         <div class="border-top border-dark pt-4 pb-3">
-          <input type="hidden" name="_method" value="PUT">
           <div class="d-flex">
             <div class="form-group mr-3">
               <%= cl_image_tag @user.photo, height: 230, width: 230, crop: :fill, gravity: :face  %>
@@ -40,63 +39,57 @@
             </div>
           </div>
 
-        <div class="d-flex  mt-4">
-          <div class="form-group w-30 mr-3">
-            <label for="input-first-name">First name:</label>
-            <input type="text" class="form-control" id="input-first-name" value="<%= @user.first_name %>">
+          <div class="d-flex  mt-4">
+            <div class="form-group w-30 mr-3">
+              <%= f.input :first_name %>
+            </div>
+             <div class="form-group w-100">
+              <%= f.input :last_name %>
+            </div>
           </div>
-           <div class="form-group w-100">
-            <label for="input-last-name">Last name:</label>
-            <input type="text" class="form-control" id="input-last-name" value="<%= @user.last_name %>">
-          </div>
-        </div>
-        <div class="d-flex">
-          <div class="form-group w-100 mr-3">
-            <label for="input-email">Email address:</label>
-            <input type="email" class="form-control" id="input-email" value="<%= @user.email %>">
-          </div>
-           <div class="form-group w-40">
-            <label for="input-phone">Phone number:</label>
-            <input type="text" class="form-control" id="input-phone" value="<%= @user.phone_number %>">
-          </div>
-        </div>
-      </div>
-
-      <h5>Address</h5>
-      <div class="border-top border-bottom border-dark pb-3 mb-4">
-
-        <div class="d-flex  mt-4">
-          <div class="form-group w-100 mr-3">
-            <label for="input-street">Street:</label>
-            <input type="text" class="form-control" id="input-street" value="<%= @user.street_address %>">
-          </div>
-           <div class="form-group w-90">
-            <label for="input-city">City:</label>
-            <input type="text" class="form-control" id="input-city" value="<%= @user.city_address %>">
-          </div>
-        </div>
-        <div class="d-flex">
-          <div class="form-group w-40 mr-3">
-            <label for="input-zip">ZIP code:</label>
-            <input type="text" class="form-control" id="input-zip" value="<%= @user.zip_address %>">
-          </div>
-           <div class="form-group w-100">
-            <label for="input-country">Country:</label>
-            <input type="text" class="form-control" id="input-country" value="<%= @user.country_address %>">
+          <div class="d-flex">
+            <div class="form-group w-100 mr-3">
+              <%= f.input :email %>
+            </div>
+             <div class="form-group w-40">
+              <%= f.input :phone_number %>
+            </div>
           </div>
         </div>
 
-      </div>
+        <h5>Address</h5>
+        <div class="border-top border-bottom border-dark pb-3 mb-4">
 
-      <button type="submit" class="btn btn-primary">Submit changes</button>
+          <div class="d-flex  mt-4">
+            <div class="form-group w-100 mr-3">
+              <%= f.input :street_address %>
+            </div>
+             <div class="form-group w-90">
+              <%= f.input :city_address %>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="form-group w-40 mr-3">
+              <%= f.input :zip_address %>
+            </div>
+             <div class="form-group w-100">
+              <%= f.input :country_address %>
+            </div>
+          </div>
 
-    </form>
+        </div>
+
+        <%= f.submit %>
+
+
+
+      <% end %>
 
     </div>
 
   </div>
 
-  <div id="bookings-tab" class="bg-white p-4 border">
+  <div id="bookings-tab" class="bg-white p-4">
     <h5>Current bookings</h5>
     <% if @current_bookings == [] %>
       <div class="mt-3 mb-5">
@@ -187,7 +180,7 @@
   <% end %>
 
   </div>
-  <div id="trabis-tab" class="bg-white p-4 border">
+  <div id="trabis-tab" class="bg-white p-4">
     <h5>My current cars</h5>
     <% if @user.trabis == [] %>
       <div class="mt-3 mb-5">

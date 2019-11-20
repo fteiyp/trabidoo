@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  #skip_before_action :verify_authenticity_token
 
   def show
     @user = User.find(params[:id])
@@ -20,19 +20,28 @@ class UsersController < ApplicationController
   end
 
   def update
+    puts("PARAMETERS")
+    p params
     @user = User.find(params[:id])
+
+    puts("AAAAAparams['user']: #{params['user']['first_name']}")
+
     if params[:file].nil?
-      @user.update(first_name: params[:first_name], last_name: params[:last_name],
-                   email: params[:email], phone_number: params[:phone_number],
-                   street_address: params[:street_address], city_address: params[:city_address],
-                   zip_address: params[:zip_address], country_address: params[:country_address])
+      @user.update(user_params)
       redirect_to user_path(@user)
     else
-      @user.update(first_name: params[:first_name], last_name: params[:last_name],
-                   email: params[:email], phone_number: params[:phone_number],
-                   street_address: params[:street_address], city_address: params[:city_address],
-                   zip_address: params[:zip_address], country_address: params[:country_address],
-                   photo: params[:file]["0"])
+      @user.update(user_params)
+      @user.photo = params[:file]["0"]
+      @user.save
     end
+
+
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :phone_number,
+                                 :street_address, :city_address, :zip_address, :country_address)
   end
 end
