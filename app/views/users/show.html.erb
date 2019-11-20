@@ -1,13 +1,13 @@
-<div class="mt-4 mb-4">
-  <h2>User: <%= @user.email %>  </h2>
-</div>
 
-<div>
+<div class="container">
+  <div class="mt-4 mb-4">
+    <h2> <strong>User:</strong>  <%= @user.email %>  </h2>
+  </div>
 
   <div>
     <ul id="myTab" class="nav nav-tabs">
       <li class="nav-item">
-        <a id="user-info-link" data-toggle="tab" class="nav-link" href="#user">User info</a>
+        <a id="user-info-link" data-toggle="tab" class="nav-link" href="#user">User Info</a>
 
       </li>
       <li class="nav-item">
@@ -18,7 +18,7 @@
       </li>
     </ul>
   </div>
-  <div id="user-info-tab" class="bg-white p-4">
+  <div id="user-info-tab" class="bg-white p-4 border">
     <div style="width: 60%" >
 
       <form id="user-form" action="<%= user_path(@user) %>" method="POST">
@@ -96,7 +96,7 @@
 
   </div>
 
-  <div id="bookings-tab" class="bg-white p-4">
+  <div id="bookings-tab" class="bg-white p-4 border">
     <h5>Current bookings</h5>
     <% if @current_bookings == [] %>
       <div class="mt-3 mb-5">
@@ -187,7 +187,7 @@
   <% end %>
 
   </div>
-  <div id="trabis-tab" class="bg-white p-4">
+  <div id="trabis-tab" class="bg-white p-4 border">
     <h5>My current cars</h5>
     <% if @user.trabis == [] %>
       <div class="mt-3 mb-5">
