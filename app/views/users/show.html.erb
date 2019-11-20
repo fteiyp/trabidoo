@@ -5,20 +5,20 @@
 <div>
 
   <div>
-    <ul class="nav nav-tabs">
+    <ul id="myTab" class="nav nav-tabs">
       <li class="nav-item">
-        <a id="user-info-link" class="nav-link" href="#">User info</a>
+        <a id="user-info-link" data-toggle="tab" class="nav-link" href="#user">User info</a>
 
       </li>
       <li class="nav-item">
-        <a id="bookings-link" class="nav-link" href="#">My Bookings</a>
+        <a id="bookings-link" data-toggle="tab" class="nav-link" href="#bookings">My Bookings</a>
       </li>
       <li class="nav-item">
-        <a id="trabis-link"class="nav-link" href="#">My Trabis</a>
+        <a id="trabis-link" data-toggle="tab" class="nav-link" href="#trabis">My Trabis</a>
       </li>
     </ul>
   </div>
-  <div id="user-info-tab" class="bg-white p-4"">
+  <div id="user-info-tab" class="bg-white p-4">
     <div style="width: 60%" >
 
       <form id="user-form" action="<%= user_path(@user) %>" method="POST">
