@@ -22,8 +22,20 @@ class TrabisController < ApplicationController
 
   def create
     @trabi = Trabi.new(trabi_params)
-    @trabi.save
-    redirect_to trabis_path(@trabi)
+    if @trabi.save
+      # CALL THE create_pictures METHOD AFTER @product.save
+      # create_pictures
+      photos = params.dig(:trabi, :pictures) || []
+      photos.each do |photo|
+        p photo
+        pic = Picture.new(url: photo)
+        pic.trabi_id = @trabi.id
+        pic.save!
+      end
+      redirect_to trabi_path(@trabi)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -40,6 +52,14 @@ class TrabisController < ApplicationController
   end
 
   private
+
+  def create_pictures
+    # photos = params.dig(:trabi, :pictures) || []
+    # photos.each do |photo|
+    #   pic = Picture.new(url: photo)
+    #   pic.trabi_id =
+    # end
+  end
 
   def set_trabi
     @trabi = Trabi.find(params[:id])
