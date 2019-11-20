@@ -1,57 +1,58 @@
+<div class="container">
+  <div class="row justify-content-center my-3">
+    <div class="col-md-10">
 
-<div class="row justify-content-center my-3">
-  <div class="col-md-10">
-
-    <div>
-      <h2> <strong><%= @trabi.title %></strong> </h2>
-      <p> <strong>Color: </strong> <%= @trabi.color %></p>
-      <p> <strong> Year: </strong> <%= @trabi.year %></p>
-      <p> <strong>About: </strong> <%= @trabi.description %></p>
-      <% if @trabi.location %>
-      <p> <strong> Location: </strong> <%= @trabi.location %> </p>
-      <% end %>
-    </div>
-
-    <!-- TODO: NEED TO SORT OUT USER OWNER AND USER RENTER HERE AND CONTROLLER -->
-    <div>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <!-- TODO: insert @trabi.image1 -->
-            <img class="d-block w-100" src="https://cdn.motor1.com/images/mgl/xxobp/s1/trabant-601-by-vilner.jpg" alt="First slide">
-          </div>
-          <div class="carousel-item">
-            <!-- TODO: insert @trabi.image2 -->
-            <img class="d-block w-100" src="https://cdn.motor1.com/images/mgl/y8NPl/s1/trabant-601-by-vilner.jpg" alt="Second slide">
-          </div>
-          <div class="carousel-item">
-            <!-- TODO: insert @trabi.image3 -->
-            <img class="d-block w-100" src="https://cdn.motor1.com/images/mgl/J7X96/s1/trabant-601-by-vilner.jpg" alt="Third slide">
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+      <div>
+        <h2> <strong><%= @trabi.title %></strong> </h2>
+        <p> <strong>Color: </strong> <%= @trabi.color %></p>
+        <p> <strong> Year: </strong> <%= @trabi.year %></p>
+        <p> <strong>About: </strong> <%= @trabi.description %></p>
+        <% if @trabi.location %>
+        <p> <strong> Location: </strong> <%= @trabi.location %> </p>
+        <% end %>
       </div>
-    </div>
 
-    <div class="d-flex justify-content-around my-5">
-      <%= link_to 'Edit Trabant', edit_trabi_path, class: "btn btn-small btn-primary"%>
-      <%= link_to 'Back to Search Trabants', trabis_path, class: "btn btn-small btn-primary"%>
-      <%= link_to "Delete", trabi_path(@trabi), class: "btn btn-small btn-primary",
-          method: :delete,
-          data: { confirm: "Are you sure?" } %>
-    </div>
+      <!-- TODO: NEED TO SORT OUT USER OWNER AND USER RENTER HERE AND CONTROLLER -->
+      <div>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <!-- TODO: insert @trabi.image1 -->
+              <img class="d-block w-100" src="https://cdn.motor1.com/images/mgl/xxobp/s1/trabant-601-by-vilner.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <!-- TODO: insert @trabi.image2 -->
+              <img class="d-block w-100" src="https://cdn.motor1.com/images/mgl/y8NPl/s1/trabant-601-by-vilner.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+              <!-- TODO: insert @trabi.image3 -->
+              <img class="d-block w-100" src="https://cdn.motor1.com/images/mgl/J7X96/s1/trabant-601-by-vilner.jpg" alt="Third slide">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
 
+      <div class="d-flex justify-content-around my-5">
+        <%= link_to 'Edit Trabant', edit_trabi_path, class: "btn btn-small btn-primary"%>
+        <%= link_to 'Back to Search Trabants', trabis_path, class: "btn btn-small btn-primary"%>
+        <%= link_to "Delete", trabi_path(@trabi), class: "btn btn-small btn-primary",
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+      </div>
+
+    </div>
   </div>
 </div>
