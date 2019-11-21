@@ -1,0 +1,20 @@
+.trabi-form-group {
+  color: $maroon;
+  font-weight: bold;
+  margin: 10px 10px;
+
+  input {
+    color: $maroon;
+    background-color: $tan;
+    border-radius: 8px;
+    border: 1px solid #C8BABF;
+    padding: 5px 10px;
+    box-shadow: 1px 1px 1px 0px #E3DDDF;
+
+    &:focus {
+      box-shadow: 0 0 2pt 2pt #E3DDDF;
+      outline: none;
+      // outline-radius: 8px;
+    }
+  }
+}
