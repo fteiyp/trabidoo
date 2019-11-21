@@ -19,9 +19,9 @@ users_attributes = [
     email:          'guyfieri@example.com',
     password:       'password',
     phone_number:   '6173653787',
-    street_address: '34 Something Ave.',
+    street_address: '172 Norfolk Street',
     city_address:   'New York',
-    zip_address:    '12345',
+    zip_address:    'NY 10002',
     country_address: 'United States',
     photo:           'https://cdn.vox-cdn.com/thumbor/dal2kKDXXU-BmDVACTLOS47UPas=/0x0:2160x3000/1200x800/filters:focal(982x778:1326x1122)/cdn.vox-cdn.com/uploads/chorus_image/image/59023747/82665331.jpg.0.jpg',
   },
@@ -31,9 +31,9 @@ users_attributes = [
     email:          'billclinton@example.com',
     password:       'password',
     phone_number:   '6173653787',
-    street_address: '22 Washington Ave.',
-    city_address:   'Washinton',
-    zip_address:    '12345',
+    street_address: '1700 New Jersey Ave NW',
+    city_address:   'Washington',
+    zip_address:    'DC 20001',
     country_address: 'United States',
     photo:           'https://pbs.twimg.com/profile_images/1187747845664923648/i_zlFpOX_400x400.jpg',
   },
@@ -43,9 +43,9 @@ users_attributes = [
     email:          'terrycrews@example.com',
     password:       'password',
     phone_number:   '1234567890',
-    street_address: '53 Doow St.',
+    street_address: '34 Kirkland Street',
     city_address:   'Cambridge',
-    zip_address:    '10405',
+    zip_address:    'MA 02138',
     country_address: 'United States',
     photo:          'https://www.biography.com/.image/t_share/MTE5NDg0MDYwNjkzMjY3OTgz/terry-crews-headshot-600x600jpg.jpg'
   },
@@ -72,6 +72,9 @@ trabis_attributes = [
     year: '1968',
     location: 'Prenzlauerberg',
     description: 'I bought this last year at an auction and have been fixing it up since this winter. I\'m a mechanic with a lot of cars but this is by far my favorite! You are welcome to rent my Trabi for an afternoon or a day or two.',
+    lon_location: 40.7213150,
+    lat_location: -73.9857011,
+    address_location: '172 Norfolk Street, New York, NY 10002, United States',
     user_id: 1
   },
   {
@@ -80,7 +83,21 @@ trabis_attributes = [
     year: '1972',
     location: 'Friedrichshain',
     description: 'My father gave this to me many years ago. I often take it on rides around the city, and am an active member of the Berlin Trabant community. Always happy to rent it out for a few days to someone who would like the experience this classic vehicle!',
+    lon_location: 38.912843,
+    lat_location: -77.017853,
+    address_location: '1700 New Jersey Ave NW, Washington, DC 20001, United States',
     user_id: 2
+  },
+  {
+    title: 'Yellow blizzard',
+    color: 'Yellow',
+    year: '1972',
+    location: 'Friedrichshain',
+    description: 'We purchased this car from a man in Arkansas, or Tennessee, or Kentucky? I can’t remember, that was 10 years ago! The car performes flawlessly and I love it!!',
+    lon_location: 42.376702,
+    lat_location: -71.113031,
+    address_location: '34 Kirkland Street, Cambridge, MA 02138, United States',
+    user_id: 3
   }
 ]
 Trabi.create(trabis_attributes)
@@ -90,12 +107,34 @@ bookings_attributes = [
   {
     start_date: DateTime.new(2019,11,3,12,0,0),
     end_date: DateTime.new(2019,11,5,12,0,0),
-    created_at: DateTime.new(2019,11,1,12,0,0),
-    updated_at: nil,
-    rating_review: '5',
+    rating_review: '0',
+    content_review: 'Very bad! Only for real fans!',
+    user_id: '1',
+    trabi_id: '2'
+  },
+  {
+    start_date: DateTime.new(2019,11,4,13,22,0),
+    end_date: DateTime.new(2019,11,4,13,22,0),
+    rating_review: nil,
+    content_review: nil,
+    user_id: '2',
+    trabi_id: '1'
+  },
+  {
+    start_date: DateTime.new(2018,1,5,8,11,0),
+    end_date: DateTime.new(2018,1,10,17,01,0),
+    rating_review: '4',
     content_review: 'Amazing time. Wow. Fantastic.',
     user_id: '3',
     trabi_id: '2'
+  },
+  {
+    start_date: DateTime.new(2019,10,7,11,56,0),
+    end_date: DateTime.new(2019,10,9,15,43,0),
+    rating_review: 3,
+    content_review: 'Quite good.',
+    user_id: '3',
+    trabi_id: '1'
   }
 ]
 Booking.create!(bookings_attributes)
