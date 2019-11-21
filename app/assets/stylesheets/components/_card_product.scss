@@ -1,7 +1,7 @@
 .card-product {
   overflow: hidden;
-  height: 120px;
-  background: white;
+  height: 180px;
+  background: $bluish;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -10,7 +10,7 @@
 
 .card-product img {
   height: 100%;
-  width: 120px;
+  width: 160px;
   object-fit: cover;
 }
 
@@ -38,3 +38,5 @@
  -webkit-box-orient: vertical;
  overflow: hidden;
 }
+
+
