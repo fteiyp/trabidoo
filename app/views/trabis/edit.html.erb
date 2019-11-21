@@ -6,10 +6,11 @@
     <%= t.input :description, label: 'Description' %>
     <%= t.input :year, label: 'Year' %>
     <%= t.input :color, label: 'Color' %>
+    <%= t.input :address, label: 'Address' %>
     <%= t.input :user_id, as: :hidden, input_html: {value: current_user[:id] } %>
-
+    <%= t.input :pictures, as: :file, input_html: { multiple: true } %>
     <%= t.submit "Edit Trabant", class: "btn btn-success mb-2" %>
+    <%= link_to 'cancel', trabis_path, class: "btn btn-primary"%>
   <% end %>
 
- <%= link_to 'cancel', trabis_path, class: "btn btn-small btn-danger"%>
 </div>
