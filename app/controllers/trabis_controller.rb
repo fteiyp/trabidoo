@@ -3,8 +3,7 @@ class TrabisController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = "title ILIKE :query OR color ILIKE :query"
-      @trabis = Trabi.where(sql_query, query: "%#{params[:query]}%")
+      @trabis = Trabi.search_by_location_title_year_and_color(params[:query])
     else
       @trabis = Trabi.all
     end
