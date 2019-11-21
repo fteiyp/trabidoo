@@ -1,13 +1,13 @@
 class Trabi < ApplicationRecord
   include PgSearch::Model
-  pg_search_scope :search_by_location_title_year_and_color,
-    against: [ :location, :title, :year, :color ],
+  pg_search_scope :search_by_address_title_year_and_color,
+    against: [:address, :title, :year, :color],
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+
   belongs_to :user
   has_many :pictures
-
   has_many :bookings
 
   validates :title, :user_id, :color, presence: true
