@@ -1,7 +1,9 @@
 <div class="container">
   <div class="my-3">
     <h1>Trabants:</h1>
+    <hr>
   </div>
+<<<<<<< HEAD
   <%= form_tag trabis_path, method: :get do %>
                 <%= text_field_tag :query,
                   params[:query],
@@ -40,11 +42,46 @@
     <div class="card-product-infos">
       <h2><%= link_to trabi.title, trabi_path(trabi) %></h2>
       <p class="truncate-overflow"> <%= trabi.description[0..200] %> </p>
+=======
+
+  <div class="d-inline-flex justify-content-around">
+
+    <div class="w-100">
+      <div
+      id="map"
+      style="width: 90%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
+    </div>
+
+    <div class="w-60">
+      <% @trabis.each do |trabi| %>
+        <div class="card-product">
+          <% if trabi.pictures.present? %>
+          <%= cl_image_tag trabi.pictures.first.url  %>
+          <% else %>
+          <%= image_tag asset_url('default_trabant_picture.jpg') %>
+          <% end %>
+
+          <div class="card-product-infos">
+            <h2><%= link_to trabi.title, trabi_path(trabi) %></h2>
+            <p class="truncate-overflow"> <%= trabi.description[0..200] %> </p>
+          </div>
+        </div>
+      <% end %>
+>>>>>>> f4af89d16fd4ac217c06bf2af55c885a37ff2709
     </div>
   </div>
   <% end %>
 
+<<<<<<< HEAD
 <% end %>
+=======
+
+
+>>>>>>> f4af89d16fd4ac217c06bf2af55c885a37ff2709
 
 
 
