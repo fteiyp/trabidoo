@@ -8,8 +8,19 @@
                   class: "form-control",
                   placeholder: "specify your search"
                 %>
+              <%= date_field_tag :start,
+                  params[:start],
+                  class: "form-control",
+                  placeholder: "From"
+                %>
+              <%= date_field_tag :end,
+                  params[:end],
+                  class: "form-control",
+                  placeholder: "Until"
+                %>
               <%= submit_tag "Search", class: "btn btn-primary" %>
             <% end %>
+
   <% @trabis.each do |trabi| %>
   <div class="card-product">
   <% if trabi.pictures.present? %>

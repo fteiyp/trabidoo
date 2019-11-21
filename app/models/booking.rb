@@ -1,4 +1,8 @@
 class Booking < ApplicationRecord
+  # multisearch
+  include PgSearch::Model
+  multisearchable against: [:start_date, :end_date]
+
   belongs_to :user
   belongs_to :trabi
 

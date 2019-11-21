@@ -4,6 +4,28 @@ class TrabisController < ApplicationController
   def index
     if params[:query].present?
       @trabis = Trabi.search_by_address_title_year_and_color(params[:query])
+      @available_trabbis = []
+      @trabis.each do |trabi|
+        trabi.bookings.each do |booking|
+          # if booking.start_date < params[:start] && booking.end_date < params[:start]
+          #   @available_trabbis << trabi
+          #   # true show available
+          # else booking.start_date > params[:start] && booking.start_date > params[:end]
+          #   @available_trabbis << trabi
+          #   # true show avalaible
+
+          if booking.start_date >= params[:start] && booking.end_date <= params[:end]
+            # then it is booked
+          elsif booking.start_date <= params[:start] && booking.end_date >= params[:end]
+          elsif booking.start_date < params[:end]
+          elsif booking.end_date > params[:start]
+          else
+            @available_trabbis << trabi
+
+            # it is booked if booking start_date is >= params
+          end
+        end
+      end
     else
       @trabis = Trabi.all
       # TODO: Show only 10 results

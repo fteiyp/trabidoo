@@ -13,6 +13,9 @@ class Trabi < ApplicationRecord
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
 
+  # multisearch
+  multisearchable against: [:address, :title, :year, :color]
+
   belongs_to :user
   has_many :pictures
   has_many :bookings
