@@ -8,11 +8,13 @@ class TrabisController < ApplicationController
       @trabis = Trabi.all
       # TODO: Show only 10 results
     end
-    @trabis_geo = Trabi.geocoded
+    @trabis_geo = @trabis.geocoded
     @markers = @trabis_geo.map do |trabi|
       {
         lat: trabi.latitude,
-        lng: trabi.longitude
+        lng: trabi.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { trabi: trabi }),
+        image_url: helpers.asset_url('pink.png')
       }
     end
   end
