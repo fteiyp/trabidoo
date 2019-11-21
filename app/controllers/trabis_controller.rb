@@ -22,11 +22,16 @@ class TrabisController < ApplicationController
       @trabis = Trabi.all
       # TODO: Show only 10 results
     end
-    # @search = params["search"]
-    # if @search.present?
-    #   @location = @search["location"]
-    #   @trabis = Trabi.where(Trabi.where("location ILIKE ?", "%#{@location}%"))
-    # end
+
+    @trabis_geo = @trabis.geocoded
+    @markers = @trabis_geo.map do |trabi|
+      {
+        lat: trabi.latitude,
+        lng: trabi.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { trabi: trabi }),
+        image_url: helpers.asset_url('pink.png')
+      }
+    end
   end
 
   def show
@@ -46,7 +51,6 @@ class TrabisController < ApplicationController
       # create_pictures
       photos = params.dig(:trabi, :pictures) || []
       photos.each do |photo|
-        p photo
         pic = Picture.new(url: photo)
         pic.trabi_id = @trabi.id
         pic.save!
@@ -66,7 +70,8 @@ class TrabisController < ApplicationController
   end
 
   def destroy
-    @trabi.destroy
+    @trabi.is_active = false
+    @trabi.save!
     redirect_to trabis_path(@trabi)
   end
 
