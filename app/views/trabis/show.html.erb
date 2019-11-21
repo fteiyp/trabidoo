@@ -38,29 +38,23 @@
       <!-- TODO: NEED TO SORT OUT USER OWNER AND USER RENTER HERE AND CONTROLLER -->
       <div>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
               <!-- TODO: insert @trabi.image1 -->
               <% if @trabi.pictures.present? %>
-               <%= cl_image_tag @trabi.pictures.first.url  %>
+               <%= cl_image_tag(@trabi.pictures.first.url, width: 1000, height:500, crop: :fill) %>
                <% else %>
                 <img src="https://cdn.motor1.com/images/mgl/xxobp/s1/trabant-601-by-vilner.jpg" />
                <% end %>
             </div>
-
-               <% @trabi.pictures.each do |picture| %>
+              <% if @trabi.pictures.length > 1 %>
+               <% @trabi.pictures.drop(1).each do |picture| %>
                    <div class="carousel-item">
               <!-- TODO: insert @trabi.image2 -->
-                      <%= cl_image_tag picture.url  %>
+              <%= cl_image_tag(picture.url, width: 1000, height:500, crop: :fill) %>
                   </div>
+                  <% end %>
                <% end %>
-              <!-- <img class="d-block w-100" src="https://cdn.motor1.com/images/mgl/xxobp/s1/trabant-601-by-vilner.jpg" alt="First slide"> -->
-
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
