@@ -6,6 +6,7 @@ class TrabisController < ApplicationController
       @trabis = Trabi.search_by_address_title_year_and_color(params[:query])
     else
       @trabis = Trabi.all
+      # TODO: Show only 10 results
     end
 
     @trabis_geo = Trabi.geocoded
@@ -53,7 +54,8 @@ class TrabisController < ApplicationController
   end
 
   def destroy
-    @trabi.destroy
+    @trabi.is_active = false
+    @trabi.save!
     redirect_to trabis_path(@trabi)
   end
 

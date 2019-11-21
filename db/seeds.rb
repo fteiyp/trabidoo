@@ -102,7 +102,7 @@ trabis_attributes = [
     color: 'Tan',
     year: '1968',
     description: 'I bought this last year at an auction and have been fixing it up since this winter. I\'m a mechanic with a lot of cars but this is by far my favorite! You are welcome to rent my Trabi for an afternoon or a day or two.',
-    address: '172 Norfolk Street, New York, NY 10002, United States',
+    address: '21 Oak St, Cambridge, MA, 02140, United States',
     user_id: 1
   },
   {
@@ -110,7 +110,7 @@ trabis_attributes = [
     color: 'Tan',
     year: '1976',
     description: 'I often take this on rides around the city, and am an active member of the Berlin Trabant community. My brother gave it to me many years ago. Always happy to rent it out for a few days to someone who would like the experience this classic vehicle!',
-    address: '1700 New Jersey Ave NW, Washington, DC 20001, United States',
+    address: '35 Harvard St, Cambridge, MA 02140, United States',
     user_id: 2
   },
   {
