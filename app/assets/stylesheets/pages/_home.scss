@@ -1,16 +1,6 @@
-.main-bg {
-  background-image: image-url("trabant_homepage_back1.jpg");
-  background-size:cover;
-}
-
-.main-bg-blur {
-  background-color: rgba(255,255,255,0.5);
-    width: 100vw;
-  height: 100vh;
-}
 
 .search-box {
-  background-color: rgba(247, 243, 242,0.7);
+  background-color: $orange;
   height: 300px;
   padding: 20px;
 }
