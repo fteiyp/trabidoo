@@ -2,12 +2,17 @@ class TrabisController < ApplicationController
   before_action :set_trabi, only: [:show, :edit, :update, :destroy]
 
   def index
-    @trabis = Trabi.all
-    @search = params["search"]
-    if @search.present?
-      @location = @search["location"]
-      @trabis = Trabi.where(Trabi.where("location ILIKE ?", "%#{@location}%"))
+    if params[:query].present?
+      @trabis = Trabi.search_by_address_title_year_and_color(params[:query])
+    else
+      @trabis = Trabi.all
+      # TODO: Show only 10 results
     end
+      # @search = params["search"]
+    # if @search.present?
+    #   @location = @search["location"]
+    #   @trabis = Trabi.where(Trabi.where("location ILIKE ?", "%#{@location}%"))
+    # end
   end
 
   def show
