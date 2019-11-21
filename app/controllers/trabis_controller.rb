@@ -52,7 +52,8 @@ class TrabisController < ApplicationController
   end
 
   def destroy
-    @trabi.destroy
+    @trabi.is_active = false
+    @trabi.save!
     redirect_to trabis_path(@trabi)
   end
 
