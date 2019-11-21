@@ -9,13 +9,13 @@
             <div class="rounded-lg search-box d-flex flex-column justify-content-around align-items-center">
               <h1>Rent a Trabi - live the dream!</h1>
              <%= form_tag trabis_path, method: :get do %>
-              <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "plese provide location..."
-              %>
-            <%= submit_tag "Search", class: "btn btn-primary" %>
-          <% end %>
+                <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control",
+                  placeholder: "please provide location"
+                %>
+              <%= submit_tag "Search", class: "btn btn-primary" %>
+            <% end %>
             </div>
           </div>
 
