@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking.trabi = @trabi
 
     if @booking.save
-      redirect_to root_path # TODO: update this to user profile once working
+      redirect_to(user_path(@user) + "#bookings") # TODO: update this to user profile once working
     else
       render :new
       # TODO: make an alert that says 'Dates not entered'
@@ -22,7 +22,13 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to(user_path(@booking.user_id) + "#bookings")
+  end
+
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :rating_review, :content_review)
   end
 end

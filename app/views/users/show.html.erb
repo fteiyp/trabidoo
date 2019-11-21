@@ -120,7 +120,7 @@
           <tr>
             <th scope="row" class="align-middle"><%= booking.id %></th>
             <td class="align-middle"><%= booking.start_date.strftime("%F %T") %></td>
-            <% if booking.start_date == booking.end_date %>
+            <% if DateTime.now <= booking.end_date.to_datetime %>
               <td class="align-middle"><em>Still running</em></td>
             <% else %>
               <td class="align-middle"><%= booking.end_date.strftime("%F %T") %></td>
@@ -128,12 +128,32 @@
 
             <td class="align-middle"><%= booking.trabi.title %></td>
             <td class="align-middle"><%= booking.trabi.user.email %></td>
-            <% if booking.start_date == booking.end_date %>
-              <td class="align-middle pt-1 pb-1"><a href="#" class="btn btn-primary disabled">Review</a></td>
+            <% if DateTime.now <= booking.end_date.to_datetime %>
+              <td class="align-middle pt-1 pb-1"><a class="btn btn-primary disabled">Review</a></td>
             <% else %>
-              <td class="align-middle pt-1 pb-1"><a href="#" class="btn btn-primary">Review</a></td>
+              <td class="align-middle pt-1 pb-1"><a id="<%="#{booking.id}-booking-review-button"%>" class="btn btn-primary">Review</a></td>
             <% end %>
           </tr>
+            <% if DateTime.now > booking.end_date.to_datetime %>
+                <tr>
+                  <td colspan="6" class="p-0">
+                    <div id="<%="#{booking.id}-booking-review-box"%>" class="border border-dark p-3  row">
+                      <div class="col-12">
+                        <%= simple_form_for(booking, method: "put") do |f| %>
+                        <div class="col-2">
+                          <%= f.input :rating_review,  collection: [0, 1, 2, 3, 4, 5], class: "form-group" %>
+                        </div>
+                        <div class="col-12">
+                          <%= f.input :content_review, class: "form-group" %>
+                          <%= f.button :submit, label: "Submit review", class: "btn btn-primary" %>
+                          <a id="<%="#{booking.id}-booking-review-cl-button"%>" class="btn btn-primary">Close</a>
+                        </div>
+                        <% end %>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+            <% end %>
           <% end %>
         </tbody>
       </table>
@@ -171,14 +191,30 @@
           <% else %>
             <td>
               <% if booking.rating_review.zero? %>
-                <i class="fas fa-skull-crossbones text-danger"></i>
+                <a id="<%="#{booking.id}-booking-rating-button"%>">
+                  <i id="<%="#{booking.id}-bones-icon"%>" class="fas fa-skull-crossbones text-danger"></i>
+                </a>
               <% else %>
-                <% booking.rating_review.times do %>
-                  <i class="fas fa-star text-warning"></i>
-                <% end %>
+                <a id="<%="#{booking.id}-booking-rating-button"%>">
+                  <% booking.rating_review.times do %>
+                    <i id="<%="#{booking.id}-star-icon"%>" class="fas fa-star text-warning"></i>
+                  <% end %>
+                </a>
               <% end %>
             </td>
           <% end %>
+        </tr>
+        <tr>
+          <td colspan="6" class="p-0">
+            <div id="<%="#{booking.id}-booking-rating-box"%>" class="border border-dark p-3  row">
+              <div class="col-12">
+                <p><%= booking.content_review %></p>
+                <a id="<%="#{booking.id}-booking-rating-cl-button"%>" class="btn btn-primary">Close</a>
+              </div>
+
+
+            </div>
+          </td>
         </tr>
         <% end %>
       </tbody>
