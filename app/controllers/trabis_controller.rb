@@ -8,7 +8,6 @@ class TrabisController < ApplicationController
       @trabis = Trabi.all
       # TODO: Show only 10 results
     end
-
     @trabis_geo = Trabi.geocoded
     @markers = @trabis_geo.map do |trabi|
       {
