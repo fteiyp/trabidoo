@@ -3,7 +3,7 @@ class TrabisController < ApplicationController
 
   def index
     if params[:query].present?
-      @trabis = Trabi.search_by_address(params[:query])
+      @trabis = Trabi.search_by_address_title_year_and_color(params[:query])
     else
       @trabis = Trabi.all
       # TODO: Show only 10 results

@@ -12,6 +12,7 @@ class Trabi < ApplicationRecord
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+
   belongs_to :user
   has_many :pictures
   has_many :bookings
