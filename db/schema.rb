@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_105903) do
+ActiveRecord::Schema.define(version: 2019_11_21_121346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,15 +42,14 @@ ActiveRecord::Schema.define(version: 2019_11_21_105903) do
     t.bigint "user_id"
     t.string "color"
     t.integer "year"
-    t.string "location"
+    t.string "address"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_active", default: true
     t.string "title"
-    t.float "lat_location"
-    t.float "lon_location"
-    t.string "address_location"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_trabis_on_user_id"
   end
 

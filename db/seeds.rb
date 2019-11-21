@@ -66,41 +66,63 @@ User.create!(users_attributes)
 
 puts 'Creating trabis...'
 trabis_attributes = [
+
+
+  ### ---------- for Berlin search ---------
+
   {
     title: 'Trabant 601, 3rd Generation, 4-Speed Manual',
     color: 'Tan',
     year: '1968',
-    location: 'Prenzlauerberg',
     description: 'I bought this last year at an auction and have been fixing it up since this winter. I\'m a mechanic with a lot of cars but this is by far my favorite! You are welcome to rent my Trabi for an afternoon or a day or two.',
-    lon_location: 40.7213150,
-    lat_location: -73.9857011,
-    address_location: '172 Norfolk Street, New York, NY 10002, United States',
+    address: 'Prenzlauer Allee 6, 10405, Berlin',
     user_id: 1
   },
   {
     title: 'Classic Trabant P50, made by VEB Sachsenring',
     color: 'Tan',
     year: '1972',
-    location: 'Friedrichshain',
     description: 'My father gave this to me many years ago. I often take it on rides around the city, and am an active member of the Berlin Trabant community. Always happy to rent it out for a few days to someone who would like the experience this classic vehicle!',
-    lon_location: 38.912843,
-    lat_location: -77.017853,
-    address_location: '1700 New Jersey Ave NW, Washington, DC 20001, United States',
+    address: 'Niederkirchnerstrasse 7, 10963 Berlin',
     user_id: 2
   },
   {
-    title: 'Yellow blizzard',
+    title: 'Yellow Trabant in excellent condition, ready to ride',
     color: 'Yellow',
-    year: '1972',
-    location: 'Friedrichshain',
+    year: '1978',
     description: 'We purchased this car from a man in Arkansas, or Tennessee, or Kentucky? I can’t remember, that was 10 years ago! The car performes flawlessly and I love it!!',
-    lon_location: 42.376702,
-    lat_location: -71.113031,
-    address_location: '34 Kirkland Street, Cambridge, MA 02138, United States',
+    address: 'Oranienstraße 190, 10999 Berlin',
+    user_id: 3
+  },
+
+  ### ---------- for Cambridge MA search ---------
+
+  {
+    title: '3rd Generation Trabant 707, Manual 5-Speed',
+    color: 'Tan',
+    year: '1968',
+    description: 'I bought this last year at an auction and have been fixing it up since this winter. I\'m a mechanic with a lot of cars but this is by far my favorite! You are welcome to rent my Trabi for an afternoon or a day or two.',
+    address: '172 Norfolk Street, New York, NY 10002, United States',
+    user_id: 1
+  },
+  {
+    title: 'Tan Vintage Trabant, Soviet Era Vehicle',
+    color: 'Tan',
+    year: '1976',
+    description: 'I often take this on rides around the city, and am an active member of the Berlin Trabant community. My brother gave it to me many years ago. Always happy to rent it out for a few days to someone who would like the experience this classic vehicle!',
+    address: '1700 New Jersey Ave NW, Washington, DC 20001, United States',
+    user_id: 2
+  },
+  {
+    title: 'One of 50 Original Trabant P50, VEB Sachsenring Edition',
+    color: 'Green',
+    year: '1971',
+    description: 'We purchased this car from a man in Arkansas, or Tennessee, or Kentucky? I can’t remember, that was 10 years ago! The car performes flawlessly and I love it!!',
+    address: '34 Kirkland Street, Cambridge, MA 02138, United States',
     user_id: 3
   }
 ]
-Trabi.create(trabis_attributes)
+Trabi.create!(trabis_attributes)
 
 puts 'Creating bookings...'
 bookings_attributes = [
@@ -110,7 +132,7 @@ bookings_attributes = [
     rating_review: '0',
     content_review: 'Very bad! Only for real fans!',
     user_id: '1',
-    trabi_id: '2'
+    trabi_id: '2',
   },
   {
     start_date: DateTime.new(2019,11,4,13,22,0),
@@ -118,7 +140,7 @@ bookings_attributes = [
     rating_review: nil,
     content_review: nil,
     user_id: '2',
-    trabi_id: '1'
+    trabi_id: '1',
   },
   {
     start_date: DateTime.new(2018,1,5,8,11,0),
@@ -126,7 +148,7 @@ bookings_attributes = [
     rating_review: '4',
     content_review: 'Amazing time. Wow. Fantastic.',
     user_id: '3',
-    trabi_id: '2'
+    trabi_id: '2',
   },
   {
     start_date: DateTime.new(2019,10,7,11,56,0),
