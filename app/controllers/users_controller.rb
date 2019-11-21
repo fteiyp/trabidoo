@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @archived_bookings = []
 
     @user.bookings.each do |booking|
-      p (DateTime.now - booking.end_date.to_datetime).to_s
+      p (DateTime.now <= booking.end_date.to_datetime).to_s
       if booking.start_date == booking.end_date
         @current_bookings << booking
       elsif booking.rating_review.nil? && (DateTime.now - booking.end_date.to_datetime) < 86_400_000

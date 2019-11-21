@@ -17,9 +17,90 @@ const inputStreet = document.getElementById("input-street");
 const inputCity = document.getElementById("input-city");
 const inputZip = document.getElementById("input-zip");
 const inputCountry = document.getElementById("input-country");
+const bookingReviewBoxes = document.querySelectorAll('[id$="-booking-review-box"]');
+const bookingReviewButtons = document.querySelectorAll('[id$="-booking-review-button"]');
+const bookingCloseReviewButtons = document.querySelectorAll('[id$="-booking-review-cl-button"]');
+const bookingRatingBoxes = document.querySelectorAll('[id$="-booking-rating-box"]');
+const bookingRatingButtons = document.querySelectorAll('[id$="-booking-rating-button"]');
+const bookingCloseRatingButtons = document.querySelectorAll('[id$="-booking-rating-cl-button"]');
 
 //Run this only on users page
 if (userInfoLink !== null && inputFirstName !== null) {
+
+  console.log(bookingRatingBoxes);
+  console.log(bookingRatingButtons);
+  console.log(bookingCloseRatingButtons);
+
+  for (let i = 0; i < bookingRatingBoxes.length; i += 1)
+  {
+    bookingRatingBoxes[i].style.display = 'none';
+  }
+
+  const ratingButtonClicked = (event) => {
+    console.log("clicked");
+    for (let i = 0; i < bookingRatingBoxes.length; i += 1)
+    {
+      console.log(bookingRatingBoxes[i].id[0]);
+      console.log(event.target.id[0]);
+      if (bookingRatingBoxes[i].id[0] == event.target.id[0])
+      {
+        bookingRatingBoxes[i].style.display = 'block';
+      }
+    }
+  }
+
+  const ratingCloseButtonClicked = (event) => {
+    console.log("clicked");
+    for (let i = 0; i < bookingRatingBoxes.length; i += 1)
+    {
+      if (bookingRatingBoxes[i].id[0] == event.target.id[0])
+      {
+        bookingRatingBoxes[i].style.display = 'none';
+        //switchTab('bookings-link');
+      }
+    }
+  }
+
+  for (let i = 0; i < bookingRatingBoxes.length; i += 1)
+  {
+    bookingRatingButtons[i].addEventListener("click", ratingButtonClicked);
+    bookingCloseRatingButtons[i].addEventListener("click", ratingCloseButtonClicked);
+  }
+
+
+
+
+  for (let i = 0; i < bookingReviewBoxes.length; i += 1)
+  {
+    bookingReviewBoxes[i].style.display = 'none';
+  }
+
+  const reviewButtonClicked = (event) => {
+    for (let i = 0; i < bookingReviewBoxes.length; i += 1)
+    {
+      if (bookingReviewBoxes[i].id[0] == event.target.id[0])
+      {
+        bookingReviewBoxes[i].style.display = 'block';
+      }
+    }
+  }
+
+  const reviewCloseButtonClicked = (event) => {
+    for (let i = 0; i < bookingReviewBoxes.length; i += 1)
+    {
+      if (bookingReviewBoxes[i].id[0] == event.target.id[0])
+      {
+        bookingReviewBoxes[i].style.display = 'none';
+        //switchTab('bookings-link');
+      }
+    }
+  }
+
+  for (let i = 0; i < bookingReviewButtons.length; i += 1)
+  {
+    bookingReviewButtons[i].addEventListener("click", reviewButtonClicked);
+    bookingCloseReviewButtons[i].addEventListener("click", reviewCloseButtonClicked);
+  }
 
   userInfoLink.classList.add('active', 'bg-white');
   userInfoTab.style.display = 'block';
@@ -29,6 +110,7 @@ if (userInfoLink !== null && inputFirstName !== null) {
   const switchTab = (tab) => {
 
     if (tab  === 'user-info-link') {
+       console.log("Show first tab");
       userInfoTab.style.display = 'block';
       bookingTab.style.display = 'none';
       trabisTab.style.display = 'none';
