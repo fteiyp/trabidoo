@@ -1,30 +1,34 @@
 <div class="main-bg">
-  <div class="main-bg-blur">
-    <div class="container">
-      <div class="home-vert-boxes">
-        <div class="row">
+  <div class="container">
+    <div class="stuffing">
+    </div>
+    <div class="row">
 
-          <div class="col-8">
-            <div class="rounded-lg search-box d-flex flex-column justify-content-around align-items-center">
-              <h1> Rent a Trabi - live the dream! </h1>
+      <div class="col-6">
+      </div>
 
-              <%= form_tag trabis_path, method: :get do %>
-                <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search a Location!" %>
-                <%= submit_tag "Search", class: "btn btn-primary" %>
-              <% end %>
+      <div class="col-6">
+        <div class="rounded-lg search-box d-flex flex-column justify-content-around align-items-center">
+          <h1> Rent a Trabi - live the dream! </h1>
 
-            </div>
-          </div>
+          <%= form_tag trabis_path, method: :get do %>
+            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search a Location!" %>
+            <%= submit_tag "Search", class: "btn btn-primary" %>
+          <% end %>
 
+        </div>
+      </div>
+    </div>
 
-          <div class="col-4">
-            <div class="info-box rounded-lg" style="background-color:white">
-            <p>The <strong>Trabant</strong> (/ˈtræbænt, -ənt/; German: [tʁaˈbant]) is an automobile which was produced from 1957 to 1990 by former East German car manufacturer VEB Sachsenring Automobilwerke Zwickau. It is often seen as symbolic of the former East Germany and the collapse of the Eastern Bloc in general.</p>
-            <p><a href="https://en.wikipedia.org/wiki/Trabant">(Wikipedia)</a></p>
-            </div>
-          </div>
+    <div class="stuffing">
+    </div>
 
-
+    <div class="row">
+      <div class="col-12">
+        <div class="info-box rounded-lg" style="background-color:white">
+        <p> The Trabant was to the East what the VW Beetle was to the West - a vehicle for the masses. It was cheap to produce, with an outer body made of hard plastic. The car's moment in the spotlight came with the fall of the Berlin wall, as citizens of the DDR spilled over the newly open East-West border in their "Trabis." There are still some 33,000 Trabants roaming the streets of Germany today.</p>
+        <p> On November 7, 1957, the first "Trabi" rolled off the line. Thousands of them crossed from East to West Germany in 1989, two years before its production was halted. Explore the history of the car that's now cult.</p>
+        <a href="https://en.wikipedia.org/wiki/Trabant">(Wikipedia)</a><
         </div>
       </div>
     </div>
