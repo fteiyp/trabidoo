@@ -2,81 +2,68 @@
   <div class="my-3">
     <h1>Trabants:</h1>
     <hr>
-  </div>
-  <%= form_tag trabis_path, method: :get do %>
-                <%= text_field_tag :query,
-                  params[:query],
-                  class: "form-control",
-                  placeholder: "specify your search"
-                %>
-              <%= date_field_tag :start,
-                  params[:start],
-                  class: "form-control",
-                  placeholder: "From"
-                %>
-              <%= submit_tag "Search", class: "btn btn-primary" %>
-            <% end %>
-<% if @available_trabbis.present? %>
-    <% @available_trabbis.each do |trabi| %>
-    <div class="card-product">
-    <% if trabi.pictures.present? %>
-    <%= cl_image_tag trabi.pictures.first.url  %>
-    <% else %>
-    <img src="https://cdn.motor1.com/images/mgl/xxobp/s1/trabant-601-by-vilner.jpg" />
+    <%= form_tag trabis_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "specify your search"
+      %>
+      <%= date_field_tag :start,
+          params[:start],
+          class: "form-control",
+          placeholder: "From"
+        %>
+      <%= submit_tag "Search", class: "btn btn-primary m-1" %>
     <% end %>
-    <div class="card-product-infos">
-      <h2><%= link_to trabi.title, trabi_path(trabi) %></h2>
-      <p class="truncate-overflow"> <%= trabi.description[0..200] %> </p>
-    </div>
   </div>
-  <% end %>
-<% else %>
-  <% @trabis.each do |trabi| %>
-    <div class="card-product">
-    <% if trabi.pictures.present? %>
-    <%= cl_image_tag trabi.pictures.first.url  %>
-    <% else %>
-    <img src="https://cdn.motor1.com/images/mgl/xxobp/s1/trabant-601-by-vilner.jpg" />
-    <% end %>
-    <div class="card-product-infos">
-      <h2><%= link_to trabi.title, trabi_path(trabi) %></h2>
-      <p class="truncate-overflow"> <%= trabi.description[0..200] %> </p>
-      </div>
-  </div>
-  <% end %>
+
 
   <div class="d-inline-flex justify-content-around">
-
-    <div class="w-100">
-      <div
-      id="map"
-      style="width: 90%;
-      height: 600px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      ></div>
+    <div class="pr-3">
+        <div
+        id="map"
+        style="width: 40vw;
+        height: 50vh;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        ></div>
     </div>
 
-    <div class="w-60">
-      <% @trabis.each do |trabi| %>
-        <div class="card-product">
-          <% if trabi.pictures.present? %>
-          <%= cl_image_tag trabi.pictures.first.url  %>
-          <% else %>
-          <%= image_tag asset_url('default_trabant_picture.jpg') %>
-          <% end %>
-
-          <div class="card-product-infos">
-            <h2><%= link_to trabi.title, trabi_path(trabi) %></h2>
-            <p class="truncate-overflow"> <%= trabi.description[0..200] %> </p>
+    <div>
+      <% if @available_trabbis.present? %>
+        <% @available_trabbis.each do |trabi| %>
+          <div class="card-product">
+            <% if trabi.pictures.present? %>
+              <%= cl_image_tag trabi.pictures.first.url  %>
+            <% else %>
+              <img src="https://cdn.motor1.com/images/mgl/xxobp/s1/trabant-601-by-vilner.jpg" />
+            <% end %>
+            <div class="card-product-infos">
+              <h2><%= link_to trabi.title, trabi_path(trabi) %></h2>
+              <p class="truncate-overflow"> <%= trabi.description[0..200] %> </p>
+            </div>
           </div>
-        </div>
+        <% end %>
+      <% else %>
+        <% @trabis.each do |trabi| %>
+          <div class="card-product">
+            <% if trabi.pictures.present? %>
+              <%= cl_image_tag trabi.pictures.first.url  %>
+            <% else %>
+              <img src="https://cdn.motor1.com/images/mgl/xxobp/s1/trabant-601-by-vilner.jpg" />
+            <% end %>
+            <div class="card-product-infos">
+              <h2><%= link_to trabi.title, trabi_path(trabi) %></h2>
+              <p class="truncate-overflow"> <%= trabi.description[0..200] %> </p>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-
-<% end %>
-
-
+    </div>
+  </div>
 
 
- <%= link_to 'Rent out Trabant', new_trabi_path, class: "btn btn-small btn-primary"%>
+
+
+ <div><%= link_to 'Rent out Trabant', new_trabi_path, class: "btn btn-small btn-primary"%></div>
 </div>
