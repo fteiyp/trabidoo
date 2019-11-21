@@ -1,6 +1,9 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-image: url('maroon_bg_image.png');
+  overflow: auto;
+  color: white;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,6 +15,26 @@
 }
 
 .navbar-expand-sm .navbar-nav .nav-link {
-    padding-right: 2.5rem;
-    padding-left: 0.5rem;
+  padding-right: 2.5rem;
+  padding-left: 0.5rem;
+  color: white;
+}
+
+#trabidoo {
+  font-family: 'Calistoga', cursive;
+  font-size: 30px;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.nav-link {
+  color: white;
+}
+
+#rent-trabi-link {
+  color: white;
+}
+
+#navbarDropdown {
+
 }
