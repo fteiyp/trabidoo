@@ -2,7 +2,14 @@
   <div class="my-3">
     <h1>Trabants:</h1>
   </div>
-
+  <%= form_tag trabis_path, method: :get do %>
+                <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control",
+                  placeholder: "specify your search"
+                %>
+              <%= submit_tag "Search", class: "btn btn-primary" %>
+            <% end %>
   <% @trabis.each do |trabi| %>
   <div class="card-product">
   <% if trabi.pictures.present? %>
