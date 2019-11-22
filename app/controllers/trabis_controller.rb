@@ -59,15 +59,15 @@ class TrabisController < ApplicationController
 
   def create
     @trabi = Trabi.new(trabi_params)
-    if @trabi.save
-      # CALL THE create_pictures METHOD AFTER @product.save
-      # create_pictures
       photos = params.dig(:trabi, :pictures) || []
       photos.each do |photo|
         pic = Picture.new(url: photo)
         pic.trabi_id = @trabi.id
         pic.save!
       end
+    if @trabi.save
+      # CALL THE create_pictures METHOD AFTER @product.save
+      # create_pictures
       redirect_to trabi_path(@trabi)
     else
       render :new
@@ -103,6 +103,6 @@ class TrabisController < ApplicationController
   end
 
   def trabi_params
-    params.require(:trabi).permit(:title, :description, :year, :color, :user_id, :address)
+    params.require(:trabi).permit(:title, :description, :year, :color, :user_id, :address, :pictures)
   end
 end
