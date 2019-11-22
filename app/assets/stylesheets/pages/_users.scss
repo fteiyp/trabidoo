@@ -11,7 +11,7 @@
 }
 
 #files-field {
-  background-color: $tan;
+  background-color: #fffbf7;
   border-radius: 8px;
   border: 2px dashed #C8BABF;
   box-shadow: 1px 1px 1px 0px #E3DDDF;
@@ -62,5 +62,20 @@
 #trabis-tab {
   border-radius: 8px;
   box-shadow: 2px 2px 3px 0px #E3DDDF;
+}
+
+#user-list {
+  list-style-type: none;
+  margin: 10px;
+  padding: 0px;
+  li {
+    margin: 1px 0px;
+  }
+}
+
+#archived-card {
+  #booking-id, #legend-id, #info-id, #space-id {
+    opacity: 0.6;
+  }
 }
 
