@@ -5,31 +5,44 @@ class TrabisController < ApplicationController
     if params[:query].present?
       @trabis = Trabi.search_by_address_title_year_and_color(params[:query])
       @available_trabbis = []
-
-      # filter through @trabis
-      @trabis.each do |trabi|
-        trabi.bookings.each do |booking|
-          if booking.start_date != params[:start]
+      if params[:start].nil?
+        params_as_date = DateTime.now
+      else
+        params_as_date = ActiveSupport::TimeZone['UTC'].parse(params[:start])
+        # filter through @trabis
+        @trabis.each do |trabi|
+          puts('ID')
+          p trabi.id
+          booked = false
+          trabi.bookings.each do |booking|
+            if booking.start_date == params_as_date
+              booked = true
+              break
+              puts('TRABIS')
+              p booking.start_date
+              p params_as_date
+            end
+          end
+          if booked == false
             @available_trabbis << trabi
           end
         end
-
-        @available_trabbis = @available_trabbis.uniq
-
+        @available_trabbis.uniq!
       end
-
     else
       @trabis = Trabi.all
       # TODO: Show only 10 results
     end
 
+    # GEOCODE!!!
     @trabis_geo = @trabis.geocoded
     @markers = @trabis_geo.map do |trabi|
       {
         lat: trabi.latitude,
         lng: trabi.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { trabi: trabi }),
-        image_url: helpers.asset_url('pink.png')
+        image_url: helpers.asset_url('logo.png')
+
       }
     end
   end
