@@ -41,7 +41,7 @@ class TrabisController < ApplicationController
         lat: trabi.latitude,
         lng: trabi.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { trabi: trabi }),
-        image_url: helpers.asset_url('logo.png')
+        image_url: helpers.asset_url('map_icon.png')
 
       }
     end
