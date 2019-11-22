@@ -14,7 +14,7 @@
       <%= t.input :description, label: 'Description:' %>
       <%= t.input :year, label: 'Year:' %>
       <%= t.input :color, label: 'Color:' %>
-      <%= t.input :address, label: 'Address:' %>
+      <%= t.input :location, label: 'Address:' %>
       <%= t.input :user_id, as: :hidden, input_html: {value: current_user[:id] } %>
       <%= t.input :pictures, label: 'Pictures:', as: :file, input_html: { multiple: true } %>
       <div class='d-flex justify-content-center'>
