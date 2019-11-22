@@ -79,7 +79,7 @@ trabis_attributes = [
     user_id: 1
   },
   {
-    title: 'Classic Trabant P50, made by VEB Sachsenring',
+    title: 'Classic Trabant P50, made by VEB Sachsenring NOT available on Nov 4',
     color: 'Tan',
     year: '1972',
     description: 'My father gave this to me many years ago. I often take it on rides around the city, and am an active member of the Berlin Trabant community. Always happy to rent it out for a few days to someone who would like the experience this classic vehicle!',
@@ -127,32 +127,32 @@ Trabi.create!(trabis_attributes)
 puts 'Creating bookings...'
 bookings_attributes = [
   {
-    start_date: DateTime.new(2019,11,3,12,0,0),
-    end_date: DateTime.new(2019,11,5,12,0,0),
+    start_date: DateTime.new(2019,11,3,00,0,0),
+    end_date: DateTime.new(2019,11,5,00,0,0),
     rating_review: '0',
     content_review: 'Very bad! Only for real fans!',
     user_id: '1',
     trabi_id: '2',
   },
   {
-    start_date: DateTime.new(2019,11,4,13,22,0),
-    end_date: DateTime.new(2019,11,4,13,22,0),
+    start_date: DateTime.new(2019,11,4,00,00,0),
+    end_date: DateTime.new(2019,11,4,00,00,0),
     rating_review: nil,
     content_review: nil,
     user_id: '2',
     trabi_id: '1',
   },
   {
-    start_date: DateTime.new(2018,1,5,8,11,0),
-    end_date: DateTime.new(2018,1,10,17,01,0),
+    start_date: DateTime.new(2018,1,5,00,00,0),
+    end_date: DateTime.new(2018,1,10,00,00,0),
     rating_review: '4',
     content_review: 'Amazing time. Wow. Fantastic.',
     user_id: '3',
     trabi_id: '2',
   },
   {
-    start_date: DateTime.new(2019,10,7,11,56,0),
-    end_date: DateTime.new(2019,10,9,15,43,0),
+    start_date: DateTime.new(2019,10,7,00,00,0),
+    end_date: DateTime.new(2019,10,9,00,00,0),
     rating_review: 3,
     content_review: 'Quite good.',
     user_id: '3',
