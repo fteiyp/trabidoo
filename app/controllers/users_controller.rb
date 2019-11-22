@@ -8,10 +8,6 @@ class UsersController < ApplicationController
     @archived_bookings = []
     @trabis_info = getInfoAboutTrabi
 
-    puts("TRABIS INFO")
-    p @trabis_info
-    p @trabis_info[1][:state]
-
     @user.bookings.each do |booking|
       (DateTime.now - booking.end_date.to_datetime).to_s
       if booking.start_date == booking.end_date
@@ -47,16 +43,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     result_info = {}
-
-
-
-    puts "trabis:"
-    p @user.trabis
-
     @user.trabis.each do |trabi|
-
-      puts "bookings:"
-      p trabi.bookings
 
       now = DateTime.now
       booked = false
@@ -80,9 +67,6 @@ class UsersController < ApplicationController
         upcoming: upcoming_booking == now ? "No booking" : upcoming_booking.strftime("%F"),
         last: last_booking == now ? "Never booked" : last_booking.strftime("%F")
       }
-
-      puts "RESULT"
-      p result_info[trabi.id]
 
     end
     return result_info
