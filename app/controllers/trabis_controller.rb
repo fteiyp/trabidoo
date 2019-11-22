@@ -103,6 +103,6 @@ class TrabisController < ApplicationController
   end
 
   def trabi_params
-    params.require(:trabi).permit(:title, :description, :year, :color, :user_id)
+    params.require(:trabi).permit(:title, :description, :year, :color, :user_id, :address)
   end
 end
