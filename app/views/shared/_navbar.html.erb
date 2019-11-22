@@ -1,6 +1,6 @@
-<div class="navbar bg-white d-flex justify-content-between navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
 
-  <div class="d-inline-flex align-items-bottom">
+  <div class="logo_title d-inline-flex align-items-bottom">
     <%= link_to image_tag("logo.png", :width=>100), root_path %>
     <p id="trabidoo">&nbsp Trabidoo</p>
   </div>
@@ -14,7 +14,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Rent My Trabi", new_trabi_path, id: 'rent-trabi-link', class: "nav-link" %>
+          <%= link_to "Rent Your Trabi", new_trabi_path, class: "nav-link", id: 'rent_trabi'%>
         </li>
         <li class="nav-item dropdown">
 

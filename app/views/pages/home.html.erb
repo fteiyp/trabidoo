@@ -1,36 +1,63 @@
-<div class="main-bg">
+<div id="background">
   <div class="container">
-    <div class="stuffing">
-    </div>
+
+    <div style="height: 120px;"></div>
+
     <div class="row">
-
-      <div class="col-6">
+      <div class="col-7">
+        <%= image_tag "trabi.png", style: 'width: 600px;' %>
       </div>
-
-      <div class="col-6">
+      <div class="col-5">
         <div class="rounded-lg search-box d-flex flex-column justify-content-around align-items-center">
-          <h1> Rent a Trabi - live the dream! </h1>
+          <h1> Rent a Trabant!</h1>
+          <h3> Live the history </h3>
 
+          <div class="container search-form">
           <%= form_tag trabis_path, method: :get do %>
-            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search a Location!" %>
+            <%= text_field_tag :query, params[:query], class: "searchy form-control", placeholder: "Search a Location!" %>
             <%= submit_tag "Search", class: "btn btn-primary" %>
           <% end %>
+          </div>
 
         </div>
       </div>
     </div>
 
-    <div class="stuffing">
+
+    <div class="row my-3 p-3">
+
+      <div class="col-8">
+        <div class="info-box rounded-lg p-3" style="background-color:white">
+          <blockquote>
+            <p class="quotation"> The Trabant was to the East what the VW Beetle was to the West - a vehicle for the masses. It was cheap to produce, with an outer body made of hard plastic. The car's moment in the spotlight came with the fall of the Berlin wall, as citizens of the DDR spilled over the newly open East-West border in their Trabis. </p>
+            <footer>— Deutsche Welle</footer>
+          </blockquote>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center align-items-center col-4">
+        <%= image_tag 'pink.png', class: 'special-photo' %>
+      </div>
     </div>
 
-    <div class="row">
-      <div class="col-12">
-        <div class="info-box rounded-lg" style="background-color:white">
-        <p> The Trabant was to the East what the VW Beetle was to the West - a vehicle for the masses. It was cheap to produce, with an outer body made of hard plastic. The car's moment in the spotlight came with the fall of the Berlin wall, as citizens of the DDR spilled over the newly open East-West border in their "Trabis." There are still some 33,000 Trabants roaming the streets of Germany today.</p>
-        <p> On November 7, 1957, the first "Trabi" rolled off the line. Thousands of them crossed from East to West Germany in 1989, two years before its production was halted. Explore the history of the car that's now cult.</p>
-        <a href="https://en.wikipedia.org/wiki/Trabant">(Wikipedia)</a><
+    <div class="row my-3 p-3">
+      <div class="d-flex justify-content-center align-items-center p-3">
+        <%= image_tag 'history.jpg', style: 'width: 100%;' %>
+      </div>
+    </div>
+
+
+    <div class="row my-3 p-3">
+      <div class="d-flex justify-content-center align-items-center col-4">
+        <%= image_tag 'yellow.png', class: 'special-photo' %>
+      </div>
+      <div class="col-8">
+        <div class="info-box rounded-lg p-3" style="background-color:white">
+          <p>On November 7, 1957, the first "Trabi" rolled off the line. Thousands of them crossed from East to West Germany in 1989, two years before its production was halted. There are still some 33,000 Trabants roaming the streets of Germany today. Although there were plans for further development — and East German engineers even came up with prototypes — GDR leaders halted the production of new, enhanced models. Inevitably, the East German car industry could not keep up with the West, so the Trabi was condemned to remain the dirty, noisy exhaust blower we've known to this day. Since there was hardly any alternative to the Trabi in the GDR, it found buyers. People were even eager to wait years for it, since the demand far exceeded the supply. While around 16.4 million people lived in East Germany in 1989, only about three million Trabis were made from 1959 to 1991. 1989: The Trabi becomes the iconic 'car of the year'.The model became world famous when the Berlin Wall came down, as thousands of Trabis lined up to freely cross the border from East to West Germany in 1989, making it the "car of the year." Still, despite its charged symbolism, the Trabant disappeared from Germany's roads quickly afterwards.Western cars were sleeker, and the modern automobiles appealed to the reunited nation far more than the compact, less comfortable old-fashioned vehicle.
+            <a href="https://en.wikipedia.org/wiki/Trabant">(Wikipedia)</a>
+          </p>
         </div>
       </div>
     </div>
+
   </div>
 </div>

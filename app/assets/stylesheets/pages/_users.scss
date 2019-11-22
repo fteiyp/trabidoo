@@ -45,23 +45,32 @@
   a {
     color: $maroon;
   }
+
+
 }
+
+.active {
+    background-color: white !important;
+  }
 
 #user-info-tab {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
   box-shadow: 2px 2px 3px 0px #E3DDDF;
+  background-color: white !important;
 }
 
 #bookings-tab {
   border-radius: 8px;
   box-shadow: 2px 2px 3px 0px #E3DDDF;
+  background-color: white !important;
 }
 
 #trabis-tab {
   border-radius: 8px;
   box-shadow: 2px 2px 3px 0px #E3DDDF;
+  background-color: white !important;
 }
 
 #user-list {

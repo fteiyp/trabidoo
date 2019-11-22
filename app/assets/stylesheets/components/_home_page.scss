@@ -1,3 +1,30 @@
-.stuffing {
-  height: 140px;
+#background {
+  background-image: url('background_blue.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.search-form .btn {
+  margin-top: 15px;
+  width: 80%;
+}
+
+.search-form .searchy {
+  text-align: center;
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;
+}
+
+:-ms-input-placeholder {
+   text-align: center;
 }
