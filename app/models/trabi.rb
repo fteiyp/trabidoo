@@ -1,10 +1,20 @@
 class Trabi < ApplicationRecord
   include PgSearch::Model
+  # below will accept different search-keys
   pg_search_scope :search_by_address_title_year_and_color,
     against: [:address, :title, :year, :color],
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+  # below will only allow search by adress
+  pg_search_scope :search_by_address,
+    against: [:address],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
+  # multisearch
+  multisearchable against: [:address, :title, :year, :color]
 
   belongs_to :user
   has_many :pictures
