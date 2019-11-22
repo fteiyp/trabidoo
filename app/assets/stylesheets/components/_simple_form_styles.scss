@@ -1,0 +1,100 @@
+.simple_form {
+
+  margin: 10px 0px;
+  select, textarea {
+    color: $maroon;
+    background-color: #fffbf7;
+    border-radius: 8px;
+    border: 1px solid #C8BABF;
+    padding: 3px 10px;
+    box-shadow: 1px 1px 1px 0px #E3DDDF;
+    /* Required for Webkit, but not for Gecko */
+    &:focus {
+      box-shadow: 0 0 2pt 2pt #E3DDDF;
+      border: 1px solid #C8BABF;
+      outline: none;
+      // outline-radius: 8px;
+    }
+  }
+  label {
+    color: $maroon;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    // margin: 10px 10px;
+  }
+
+
+ #simple-form-btn {
+    font-weight: bolder;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    color: $tan;
+    background-color: #d1274b;
+    border-radius: 8px;
+    box-shadow: 2px 2px 3px #F2C1CC;
+    padding: 9px 17px;
+    margin: 0;
+
+    &:hover {
+      background-color: #D84665;
+    }
+  }
+
+}
+
+
+// div.boolean, .simple_form input[type='submit'] {
+//   margin-left: 120px;
+// }
+
+// div.boolean label {
+//   float: none;
+//   margin: 0;
+// }
+
+// label.collection_radio_buttons {
+//   float: none;
+//   margin: 0;
+//   margin-right: 10px;
+//   vertical-align: -2px;
+//   margin-left: 2px;
+// }
+
+// .field_with_errors {
+//   background-color: #ff3333;
+// }
+
+// .simple_form {
+//   .error {
+//     clear: left;
+//     color: black;
+//     display: block;
+//     margin-left: 120px;
+//   }
+//   .hint {
+//     clear: left;
+//     margin-left: 120px;
+//     color: #555;
+//     display: block;
+//     font-style: italic;
+//   }
+// }
+
+// input {
+//   &.radio {
+//     margin-right: 5px;
+//     vertical-align: -3px;
+//   }
+//   &.check_boxes {
+//     margin-left: 3px;
+//     vertical-align: -3px;
+//   }
+// }
+
+// label.collection_check_boxes {
+//   float: none;
+//   margin: 0;
+//   vertical-align: -2px;
+//   margin-left: 2px;
+// }
