@@ -15,7 +15,7 @@
           <div class="container search-form">
           <%= form_tag trabis_path, method: :get do %>
             <%= text_field_tag :query, params[:query], class: "searchy form-control", placeholder: "Search a Location!" %>
-            <%= submit_tag "Search", class: "btn btn-primary" %>
+            <%= submit_tag "Search", class: "btn btn-primary", style: 'width: 100%;' %>
           <% end %>
           </div>
 
@@ -25,12 +25,10 @@
 
 
     <div class="row my-3 p-3">
-
       <div class="col-8">
         <div class="info-box rounded-lg p-3" style="background-color:white">
           <blockquote>
-            <p class="quotation"> The Trabant was to the East what the VW Beetle was to the West - a vehicle for the masses. It was cheap to produce, with an outer body made of hard plastic. The car's moment in the spotlight came with the fall of the Berlin wall, as citizens of the DDR spilled over the newly open East-West border in their Trabis. </p>
-            <footer>— Deutsche Welle</footer>
+            <p class="quotation"> The Running Cardboard, The Plastic Bomber, The Saxon Porsche - Just some of the many nicknames that have been given to the Trabant. Spend some time in this hilariously antiquated car - rent a Trabant! </p>
           </blockquote>
         </div>
       </div>
@@ -56,6 +54,20 @@
             <a href="https://en.wikipedia.org/wiki/Trabant">(Wikipedia)</a>
           </p>
         </div>
+      </div>
+    </div>
+
+    <div class="row my-3 p-3">
+      <div class="col-8">
+        <div class="info-box rounded-lg p-3" style="background-color:white">
+          <blockquote>
+            <p class="quotation"> The Trabant was to the East what the VW Beetle was to the West - a vehicle for the masses. It was cheap to produce, with an outer body made of hard plastic. The car's moment in the spotlight came with the fall of the Berlin wall, as citizens of the DDR spilled over the newly open East-West border in their Trabis. </p>
+            <footer>— Deutsche Welle</footer>
+          </blockquote>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center align-items-center col-4">
+        <%= image_tag 'pink.png', class: 'special-photo' %>
       </div>
     </div>
 
