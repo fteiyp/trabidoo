@@ -1,20 +1,23 @@
 .navbar-lewagon {
+  background-color: rgba(70,88,129,0.92);
+  position: fixed;
   justify-content: space-between;
-  background-image: url('maroon_bg_image.png');
+  width: 100%;
+  z-index: 999;
   overflow: auto;
   color: white;
-
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar .navbar-brand img {
   width: 40px;
 }
 
 .navbar-expand-sm .navbar-nav .nav-link {
+  padding-top: 12px;
   padding-right: 2.5rem;
   padding-left: 0.5rem;
   color: white;
@@ -31,10 +34,8 @@
   color: white;
 }
 
-#rent-trabi-link {
+
+#rent_trabi {
   color: white;
 }
 
-#navbarDropdown {
-
-}
