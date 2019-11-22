@@ -49,6 +49,7 @@
           <% else %>
             <% @trabis.each do |trabi| %>
               <div class="card-product">
+                <%= trabi.pictures.present? %>
                 <% if trabi.pictures.present? %>
                   <%= cl_image_tag trabi.pictures.first.url  %>
                 <% else %>
