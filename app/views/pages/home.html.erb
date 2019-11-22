@@ -12,10 +12,12 @@
           <h1> Rent a Trabant!</h1>
           <h3> Live the history </h3>
 
+          <div class="container search-form">
           <%= form_tag trabis_path, method: :get do %>
-            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search a Location!" %>
+            <%= text_field_tag :query, params[:query], class: "searchy form-control", placeholder: "Search a Location!" %>
             <%= submit_tag "Search", class: "btn btn-primary" %>
           <% end %>
+          </div>
 
         </div>
       </div>

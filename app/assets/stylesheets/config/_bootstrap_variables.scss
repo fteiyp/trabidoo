@@ -9,18 +9,21 @@ $headings-font-family:    $headers-font;
 $body-bg:                 $tan;
 $font-size-base: 1rem;
 
+$darkblue: #1b2a49;
+$blue: #465881;
+$lightblue: #00909e;
+$grey: #c9d1d3;
+
 // Colors
 $body-color: $gray;
-$primary:    $blue;
+// changed primary
+$primary:    $lightblue;
 $success:    $green;
 $info:       $yellow;
 $danger:     $red;
 $warning:    $orange;
 
-$darkblue: #1b2a49;
-$blue: #465881;
-$lightblue: #00909e;
-$grey: #c9d1d3;
+
 
 
 // Buttons & inputs' radius
