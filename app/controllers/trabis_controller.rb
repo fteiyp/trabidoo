@@ -15,7 +15,6 @@ class TrabisController < ApplicationController
         end
 
         @available_trabbis = @available_trabbis.uniq
-
       end
 
     else
