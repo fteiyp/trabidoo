@@ -9,20 +9,20 @@
   font-size: 15px;
   letter-spacing: 0.3px;
   color: $tan;
-  background-color: #d1274b;
+  background-color: #00909e;
   border-radius: 8px;
-  box-shadow: 2px 2px 3px #F2C1CC;
+  box-shadow: 2px 2px 3px #DBEFF1;
   padding: 10px 17px;
 
 
   &:hover {
     text-decoration: none;
-    background-color: #D84665;
+    background-color: #49B0BA;
   }
 
   &:active {
     outline: none;
-    box-shadow: 0px 0px 2px 4px #F2C1CC;
+    box-shadow: 0px 0px 2px 4px #DBEFF1;
   }
 
   &:focus {
