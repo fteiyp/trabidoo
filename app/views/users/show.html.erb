@@ -30,37 +30,35 @@
           <input type="hidden" name="_method" value="PUT">
           <div class="d-flex">
             <div class="form-group mr-3">
-              <%= cl_image_tag @user.photo, height: 230, width: 230, crop: :fill, gravity: :face  %>
+              <%= cl_image_tag @user.photo, height: 230, width: 230, crop: :fill, gravity: :face, class: "avatar-img"  %>
             </div>
             <div id="files-field"
-               class="dropzone"
-               style="border: 2px dashed rgba(0, 0, 0, 0.3);
-                      height: 230px !important; width: 100%; background-color: #F4F4F4">
-              <div class="dz-message"
-                   style="margin: 65px 20px">
+               class="dropzone dropzone-box dropzone-details">
+
+              <div id="dz-message" class="dz-message">
                 Drag your avatar here or click to select file!
               </div>
             </div>
           </div>
 
-        <div class="d-flex  mt-4">
-          <div class="form-group w-30 mr-3">
-            <label for="input-first-name">First name:</label>
-            <input type="text" class="form-control" id="input-first-name" value="<%= @user.first_name %>">
+        <div class="d-flex">
+          <div id="first-name-group" class="trabi-form-group">
+            <label for="input-first-name">First name:</label><br>
+            <input type="text" class="" id="input-first-name" value="<%= @user.first_name %>">
           </div>
-           <div class="form-group w-100">
-            <label for="input-last-name">Last name:</label>
-            <input type="text" class="form-control" id="input-last-name" value="<%= @user.last_name %>">
+           <div id="last-name-group" class="trabi-form-group">
+            <label for="input-last-name">Last name:</label><br>
+            <input type="text" class="" id="input-last-name" value="<%= @user.last_name %>">
           </div>
         </div>
         <div class="d-flex">
-          <div class="form-group w-100 mr-3">
-            <label for="input-email">Email address:</label>
-            <input type="email" class="form-control" id="input-email" value="<%= @user.email %>">
+          <div class="trabi-form-group">
+            <label for="input-email">Email address:</label><br>
+            <input type="email" class="" id="input-email" value="<%= @user.email %>">
           </div>
-           <div class="form-group w-40">
-            <label for="input-phone">Phone number:</label>
-            <input type="text" class="form-control" id="input-phone" value="<%= @user.phone_number %>">
+           <div class="trabi-form-group">
+            <label for="input-phone">Phone number:</label><br>
+            <input type="text" class="" id="input-phone" value="<%= @user.phone_number %>">
           </div>
         </div>
       </div>
@@ -68,30 +66,30 @@
       <h5>Address</h5>
       <div class="border-top border-bottom border-dark pb-3 mb-4">
 
-        <div class="d-flex  mt-4">
-          <div class="form-group w-100 mr-3">
-            <label for="input-street">Street:</label>
-            <input type="text" class="form-control" id="input-street" value="<%= @user.street_address %>">
+        <div class="d-flex">
+          <div class="trabi-form-group">
+            <label for="input-street">Street:</label><br>
+            <input type="text" class="" id="input-street" value="<%= @user.street_address %>">
           </div>
-           <div class="form-group w-90">
-            <label for="input-city">City:</label>
-            <input type="text" class="form-control" id="input-city" value="<%= @user.city_address %>">
+           <div class="trabi-form-group">
+            <label for="input-city">City:</label><br>
+            <input type="text" class="" id="input-city" value="<%= @user.city_address %>">
           </div>
         </div>
         <div class="d-flex">
-          <div class="form-group w-40 mr-3">
-            <label for="input-zip">ZIP code:</label>
-            <input type="text" class="form-control" id="input-zip" value="<%= @user.zip_address %>">
+          <div class="trabi-form-group">
+            <label for="input-zip">ZIP code:</label><br>
+            <input type="text" class="" id="input-zip" value="<%= @user.zip_address %>">
           </div>
-           <div class="form-group w-100">
-            <label for="input-country">Country:</label>
-            <input type="text" class="form-control" id="input-country" value="<%= @user.country_address %>">
+           <div class="trabi-form-group">
+            <label for="input-country">Country:</label><br>
+            <input type="text" class="" id="input-country" value="<%= @user.country_address %>">
           </div>
         </div>
 
       </div>
 
-      <button type="submit" class="btn btn-primary">Submit changes</button>
+      <button type="submit" class="trabi-btn">Submit changes</button>
 
     </form>
 
@@ -107,59 +105,75 @@
       </div>
     <% else %>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col" class="th-lg">Booking #</th>
-            <th scope="col" class="th-lg">Start date</th>
-            <th scope="col" class="th-lg">End date</th>
-            <th scope="col" class="th-lg">Car</th>
-            <th scope="col" class="th-lg">Owner</th>
-            <th scope="col" class="th-lg"></th>
-          </tr>
-        </thead>
-        <tbody>
+     <!--  <table>
+        <tbody> -->
+          <ul id="user-list">
           <% @current_bookings.each do |booking| %>
-          <tr>
-            <th scope="row" class="align-middle"><%= booking.id %></th>
-            <td class="align-middle"><%= booking.start_date.strftime("%F %T") %></td>
-            <% if DateTime.now <= booking.end_date.to_datetime %>
-              <td class="align-middle"><em>Still running</em></td>
-            <% else %>
-              <td class="align-middle"><%= booking.end_date.strftime("%F %T") %></td>
-            <% end %>
+          <li>
 
-            <td class="align-middle"><%= booking.trabi.title %></td>
-            <td class="align-middle"><%= booking.trabi.user.email %></td>
-            <% if DateTime.now <= booking.end_date.to_datetime %>
-              <td class="align-middle pt-1 pb-1"><a class="btn btn-primary disabled">Review</a></td>
-            <% else %>
-              <td class="align-middle pt-1 pb-1"><a id="<%="#{booking.id}-booking-review-button"%>" class="btn btn-primary">Review</a></td>
-            <% end %>
-          </tr>
+            <div class="user-table-card">
+              <div class="basic-info-card">
+                <div id="booking-id" class="">
+                  <%= booking.id %>
+                </div>
+
+                <div id="legend-id">
+                  <span>Start date:</span>
+                  <span>End date:</span>
+                </div>
+                <div id="info-id">
+                  <span><%= booking.start_date.strftime("%F") %></span>
+                  <span>
+                    <% if DateTime.now <= booking.end_date.to_datetime %>
+                      <em>Still running</em>
+                    <% else %>
+                      <%= booking.end_date.strftime("%F") %>
+                    <% end %>
+                    </span>
+                </div>
+                <div id="space-id">
+                </div>
+                <div id="legend-id">
+                  <span>Owner:</span>
+                  <span>Car:</span>
+                </div>
+                <div id="info-id">
+                  <span><%= booking.trabi.user.email %></span>
+                  <span><%= booking.trabi.title %></span>
+                </div>
+              </div>
+              <div id="review-card">
+                <% if DateTime.now <= booking.end_date.to_datetime %>
+                    <a class="trabi-btn disabled">Review</a>
+                  <% else %>
+                    <a id="<%="#{booking.id}-booking-review-button"%>" class="trabi-btn">Review</a>
+                  <% end %>
+              </div>
+            </div>
+
+          </li>
             <% if DateTime.now > booking.end_date.to_datetime %>
-                <tr>
-                  <td colspan="6" class="p-0">
-                    <div id="<%="#{booking.id}-booking-review-box"%>" class="border border-dark p-3  row">
+                <li>
+
+                    <div id="<%="#{booking.id}-booking-review-box"%>" class="user-review-card">
                       <div class="col-12">
                         <%= simple_form_for(booking, method: "put") do |f| %>
                         <div class="col-2">
-                          <%= f.input :rating_review,  collection: [0, 1, 2, 3, 4, 5], class: "form-group" %>
+                          <%= f.input :rating_review,  collection: [0, 1, 2, 3, 4, 5], class: "trabi-form-group" %>
                         </div>
                         <div class="col-12">
-                          <%= f.input :content_review, class: "form-group" %>
-                          <%= f.button :submit, label: "Submit review", class: "btn btn-primary" %>
-                          <a id="<%="#{booking.id}-booking-review-cl-button"%>" class="btn btn-primary">Close</a>
+                          <%= f.input :content_review, class: "trabi-form-group" %>
+                          <%= f.button :submit, label: "Submit review", id: "simple-form-btn" %>
+                          <a id="<%="#{booking.id}-booking-review-cl-button"%>" class="trabi-btn" style="color: #fff4e4;">Close</a>
                         </div>
                         <% end %>
                       </div>
                     </div>
-                  </td>
-                </tr>
+
+                </li>
             <% end %>
           <% end %>
-        </tbody>
-      </table>
+      </ul>
 
     <% end %>
 
@@ -170,59 +184,72 @@
       </div>
     <% else %>
 
-      <table class="table">
-      <thead>
-        <tr>
-          <th scope="col" class="th-lg">Booking #</th>
-          <th scope="col" class="th-lg">Start date</th>
-          <th scope="col" class="th-lg">End date</th>
-          <th scope="col" class="th-lg">Car</th>
-          <th scope="col" class="th-lg">Owner</th>
-          <th scope="col" class="th-lg">Rating</th>
-        </tr>
-      </thead>
-      <tbody>
+      <ul id="user-list">
         <% @archived_bookings.each do |booking| %>
-        <tr>
-          <th scope="row"><%= booking.id %></th>
-          <td><%= booking.start_date.strftime("%F %T") %></td>
-          <td><%= booking.end_date.strftime("%F %T") %></td>
-          <td><%= booking.trabi.title %></td>
-          <td><%= booking.trabi.user.email %></td>
-          <% if booking.rating_review.nil? %>
-            <td><em>No rating</em></td>
-          <% else %>
-            <td>
-              <% if booking.rating_review.zero? %>
-                <a id="<%="#{booking.id}-booking-rating-button"%>">
-                  <i id="<%="#{booking.id}-bones-icon"%>" class="fas fa-skull-crossbones text-danger"></i>
-                </a>
-              <% else %>
-                <a id="<%="#{booking.id}-booking-rating-button"%>">
-                  <% booking.rating_review.times do %>
-                    <i id="<%="#{booking.id}-star-icon"%>" class="fas fa-star text-warning"></i>
-                  <% end %>
-                </a>
-              <% end %>
-            </td>
-          <% end %>
-        </tr>
-        <tr>
-          <td colspan="6" class="p-0">
-            <div id="<%="#{booking.id}-booking-rating-box"%>" class="border border-dark p-3  row">
+        <li>
+            <div class="user-table-card" id="archived-card">
+              <div class="basic-info-card">
+                <div id="booking-id" class="">
+                  <%= booking.id %>
+                </div>
+
+                <div id="legend-id">
+                  <span>Start date:</span>
+                  <span>End date:</span>
+                </div>
+                <div id="info-id">
+                  <span><%= booking.start_date.strftime("%F") %></span>
+                  <span>
+                    <% if DateTime.now <= booking.end_date.to_datetime %>
+                      <em>Still running</em>
+                    <% else %>
+                      <%= booking.end_date.strftime("%F") %>
+                    <% end %>
+                    </span>
+                </div>
+                <div id="space-id">
+                </div>
+                <div id="legend-id">
+                  <span>Owner:</span>
+                  <span>Car:</span>
+                </div>
+                <div id="info-id">
+                  <span><%= booking.trabi.user.email %></span>
+                  <span><%= booking.trabi.title %></span>
+                </div>
+              </div>
+              <div id="review-card">
+                <% if booking.rating_review.nil? %>
+                  <em>No rating</em>
+                <% else %>
+                  <td>
+                    <% if booking.rating_review.zero? %>
+                      <a id="<%="#{booking.id}-booking-rating-button"%>" class="trabi-icon-btn">
+                        <i id="<%="#{booking.id}-bones-icon"%>" class="fas fa-skull-crossbones trabi-icon-skull"></i>
+                      </a>
+                    <% else %>
+                      <a id="<%="#{booking.id}-booking-rating-button"%>" class="trabi-icon-btn">
+                        <% booking.rating_review.times do %>
+                          <i id="<%="#{booking.id}-star-icon"%>" class="fas fa-star trabi-icon-star"></i>
+                        <% end %>
+                      </a>
+                    <% end %>
+                  </td>
+                <% end %>
+              </div>
+            </div>
+
+          </li>
+          <li>
+            <div id="<%="#{booking.id}-booking-rating-box"%>" class="user-review-card" id="user-rating-card">
               <div class="col-12">
                 <p><%= booking.content_review %></p>
-                <a id="<%="#{booking.id}-booking-rating-cl-button"%>" class="btn btn-primary">Close</a>
+                <a id="<%="#{booking.id}-booking-rating-cl-button"%>" class="trabi-btn" style="color: #fff4e4">Close</a>
               </div>
-
-
             </div>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-
+          </li>
+      <% end %>
+    </ul>
   <% end %>
 
   </div>
@@ -233,30 +260,54 @@
         <em>No trabis offered yet</em>
       </div>
     <% else %>
+      <ul id="user-list">
+        <% @user.trabis.each do |trabi| %>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col" class="th-lg">Trabi #</th>
-            <th scope="col" class="th-lg">Title</th>
-            <th scope="col" class="th-lg">Color</th>
-            <th scope="col" class="th-lg">Year</th>
-            <th scope="col" class="th-lg"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @user.trabis.each do |trabi| %>
-          <tr>
-            <th scope="row"><%= trabi.id %></th>
-            <td class="align-middle"><%= trabi.title %></td>
-            <td class="align-middle"><%= trabi.color %></td>
-            <td class="align-middle"><%= trabi.year %></td>
-            <td class="pt-1 pb-1"><%= link_to "Details", trabi_path(trabi), class: "btn btn-primary" %>
-            <!-- <a href="#" class="btn btn-primary">Details</a> --></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+          <li>
+
+            <div class="user-table-card">
+              <div class="basic-info-card">
+                <div id="booking-id" class="">
+                  <%= trabi.id %>
+                </div>
+                <div id="legend-id">
+                  <span>Car:</span>
+                  <span>State:</span>
+                </div>
+                <div id="info-id">
+                  <span><%= trabi.title %></span>
+                  <span><%= @trabis_info[trabi.id][:state] %></span>
+                </div>
+                <div id="space-id">
+                </div>
+                <div id="legend-id">
+                  <span>Last:</span>
+                  <span>Upcoming:</span>
+                </div>
+                <div id="info-id">
+                  <span><%= @trabis_info[trabi.id][:last] %></span>
+                  <span><%= @trabis_info[trabi.id][:upcoming] %></span>
+                </div>
+              </div>
+              <div>
+                <div id="review-card">
+                  <%=  link_to "Details", trabi_path(trabi), class: "trabi-btn mt-1" %>
+                </div>
+              </div>
+
+            </div>
+
+          </li>
+
+
+
+        <% end %>
+      </ul>
+
+
+
+
+
 
     <% end %>
   </div>

@@ -4,6 +4,8 @@
   justify-content: space-between;
   width: 100%;
   z-index: 999;
+  overflow: auto;
+  color: white;
 }
 
 .navbar .navbar-collapse {
@@ -15,10 +17,23 @@
 }
 
 .navbar-expand-sm .navbar-nav .nav-link {
-    padding-right: 2.5rem;
-    padding-left: 0.5rem;
-    padding-top: 12px;
+  padding-top: 12px;
+  padding-right: 2.5rem;
+  padding-left: 0.5rem;
+  color: white;
 }
+
+#trabidoo {
+  font-family: 'Calistoga', cursive;
+  font-size: 30px;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.nav-link {
+  color: white;
+}
+
 
 #rent_trabi {
   color: white;

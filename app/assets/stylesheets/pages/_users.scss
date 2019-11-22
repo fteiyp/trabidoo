@@ -1,0 +1,81 @@
+.dropzone-details {
+  height: 230px !important;
+  width: 100%;
+}
+
+#dz-message {
+  text-align: center;
+  vertical-align: center;
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
+#files-field {
+  background-color: #fffbf7;
+  border-radius: 8px;
+  border: 2px dashed #C8BABF;
+  box-shadow: 1px 1px 1px 0px #E3DDDF;
+}
+
+.avatar-img {
+  height: 230;
+  width: 230;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px 0px #E3DDDF;
+}
+
+#first-name-group {
+  width: 30%;
+  padding: 0;
+}
+
+#last-name-group {
+  padding: 0;
+  #input-last-name {
+    width: 100%;
+  }
+}
+
+.nav-item {
+  color: $maroon;
+  font-weight: bold;
+  border-top-left-radius: 8px;
+  border-top-left-radius: 8px;
+
+  a {
+    color: $maroon;
+  }
+}
+
+#user-info-tab {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: 2px 2px 3px 0px #E3DDDF;
+}
+
+#bookings-tab {
+  border-radius: 8px;
+  box-shadow: 2px 2px 3px 0px #E3DDDF;
+}
+
+#trabis-tab {
+  border-radius: 8px;
+  box-shadow: 2px 2px 3px 0px #E3DDDF;
+}
+
+#user-list {
+  list-style-type: none;
+  margin: 10px;
+  padding: 0px;
+  li {
+    margin: 1px 0px;
+  }
+}
+
+#archived-card {
+  #booking-id, #legend-id, #info-id, #space-id {
+    opacity: 0.6;
+  }
+}
+
