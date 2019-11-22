@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @archived_bookings = []
     @trabis_info = getInfoAboutTrabi
 
-    @user.bookings.each do |booking|
+    @user.bookings.order(start_date: :desc).each do |booking|
       (DateTime.now - booking.end_date.to_datetime).to_s
       if booking.start_date == booking.end_date
         @current_bookings << booking
