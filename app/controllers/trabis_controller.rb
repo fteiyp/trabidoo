@@ -4,10 +4,25 @@ class TrabisController < ApplicationController
   def index
     if params[:query].present?
       @trabis = Trabi.search_by_address_title_year_and_color(params[:query])
+      @available_trabbis = []
+
+      # filter through @trabis
+      @trabis.each do |trabi|
+        trabi.bookings.each do |booking|
+          if booking.start_date != params[:start]
+            @available_trabbis << trabi
+          end
+        end
+
+        @available_trabbis = @available_trabbis.uniq
+
+      end
+
     else
       @trabis = Trabi.all
       # TODO: Show only 10 results
     end
+
     @trabis_geo = @trabis.geocoded
     @markers = @trabis_geo.map do |trabi|
       {
