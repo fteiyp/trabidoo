@@ -3,20 +3,19 @@
   <div style='height: 100px;'></div>
 
   <div>
-    <h1>Add new Trabant</h1>
+    <h1>Rent out your Trabant</h1>
     <hr>
   </div>
 
   <!-- TODO: Prevent users from creating new trabi rentals if not logged in, make alert -->
   <div class="card p-3 rounded">
     <%= simple_form_for [@trabi] do |t| %>
-      <%= t.input :title, label: 'Title' %>
-      <%= t.input :description, label: 'Description' %>
-      <%= t.input :year, label: 'Year' %>
-      <%= t.input :color, label: 'Color' %>
-      <%= t.input :address, label: 'Address' %>
+      <%= t.input :title, label: 'Title:' %>
+      <%= t.input :description, label: 'Description:' %>
+      <%= t.input :year, label: 'Year:' %>
+      <%= t.input :color, label: 'Color:' %>
       <%= t.input :user_id, as: :hidden, input_html: {value: current_user[:id] } %>
-      <%= t.input :pictures, as: :file, input_html: { multiple: true } %>
+      <%= t.input :pictures, label: 'Pictures:', as: :file, input_html: { multiple: true } %>
       <div class='d-flex justify-content-center'>
         <%= t.submit 'Submit', class: "btn btn-primary mr-4", style: "width: 200px;" %>
         <%= link_to 'Cancel', trabis_path, class: "btn btn-primary ml-4", style: "width: 200px;" %>
