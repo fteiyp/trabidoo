@@ -1,0 +1,36 @@
+#trabi-review-card {
+  padding: 10px 15px;
+  width: 500px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 1px 1px 2px 1px #E3DDDF;
+  margin: 10px;
+  font-size: 14px;
+
+  p {
+    margin: 2px 0px;
+    color: $maroon;
+  }
+
+  #star {
+    color: $yellow;
+  }
+
+  #skull {
+    color: $red;
+  }
+
+  #rating-line {
+    display:flex;
+    justify-content: flex-start;
+    padding-bottom: 8px;
+    #user {
+      margin-right: 10px;
+    }
+  }
+
+  #review-line {
+    border-top: 1px solid $maroon;
+    padding-top: 8px;
+  }
+}
