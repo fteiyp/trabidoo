@@ -1,17 +1,23 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar {
+  background-color: rgba(70,88,129,0.92);
+  position: fixed;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar .navbar-brand img {
   width: 40px;
 }
 
 .navbar-expand-sm .navbar-nav .nav-link {
     padding-right: 2.5rem;
     padding-left: 0.5rem;
+    padding-top: 12px;
 }
+
+#rent_trabi {
+  color: white;
+}
+
