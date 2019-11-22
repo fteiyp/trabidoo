@@ -1,0 +1,56 @@
+#title {
+  h2 {
+    color: $maroon;
+    margin: 10px;
+  }
+  h4 {
+    color: $maroon;
+    margin: 10px;
+  }
+}
+
+#trabi-main-box {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#trabi-desc-card {
+  padding: 25px;
+  height: 340px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 1px 1px 2px 1px #E3DDDF;
+  margin: 10px;
+
+  #info-box {
+    p {
+      margin: 2px 0px;
+      color: $maroon;
+    }
+    padding-bottom: 15px;
+  }
+
+  #desc-box {
+    color: $maroon;
+    border-top: 1px solid $maroon;
+    padding-top: 15px;
+    font-size: 14px;
+    text-align: justify;
+  }
+}
+
+#trabi-form-card {
+
+  padding: 20px;
+  margin: 10px;
+  height: 150px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 2px 1px #E3DDDF;
+  background-color: white;
+
+  #rent-btn {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+}
