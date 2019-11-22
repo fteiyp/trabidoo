@@ -13,8 +13,7 @@ class TrabisController < ApplicationController
             @available_trabbis << trabi
           end
         end
-
-        @available_trabbis = @available_trabbis.uniq
+        return @available_trabbis = @available_trabbis.uniq
       end
 
     else
@@ -22,6 +21,7 @@ class TrabisController < ApplicationController
       # TODO: Show only 10 results
     end
 
+    # GEOCODE!!!
     @trabis_geo = @trabis.geocoded
     @markers = @trabis_geo.map do |trabi|
       {
