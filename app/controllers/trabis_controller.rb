@@ -5,26 +5,30 @@ class TrabisController < ApplicationController
     if params[:query].present?
       @trabis = Trabi.search_by_address_title_year_and_color(params[:query])
       @available_trabbis = []
-      params_as_date = ActiveSupport::TimeZone['UTC'].parse(params[:start])
-      # filter through @trabis
-      @trabis.each do |trabi|
-        puts('ID')
-        p trabi.id
-        booked = false
-        trabi.bookings.each do |booking|
-          if booking.start_date == params_as_date
-            booked = true
-            break
-            puts('TRABIS')
-            p booking.start_date
-            p params_as_date
+      if params[:start].nil?
+        params_as_date = DateTime.now
+      else
+        params_as_date = ActiveSupport::TimeZone['UTC'].parse(params[:start])
+        # filter through @trabis
+        @trabis.each do |trabi|
+          puts('ID')
+          p trabi.id
+          booked = false
+          trabi.bookings.each do |booking|
+            if booking.start_date == params_as_date
+              booked = true
+              break
+              puts('TRABIS')
+              p booking.start_date
+              p params_as_date
+            end
+          end
+          if booked == false
+            @available_trabbis << trabi
           end
         end
-        if booked == false
-          @available_trabbis << trabi
-        end
+        @available_trabbis.uniq!
       end
-      @available_trabbis.uniq!
     else
       @trabis = Trabi.all
       # TODO: Show only 10 results
