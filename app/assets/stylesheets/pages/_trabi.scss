@@ -16,8 +16,8 @@
 }
 
 #trabi-desc-card {
-  padding: 25px;
-  height: 340px;
+  padding: 20px;
+  height: 302px;
   background-color: white;
   border-radius: 8px;
   box-shadow: 1px 1px 2px 1px #E3DDDF;
@@ -40,17 +40,53 @@
   }
 }
 
+#trabi-btn-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 10px;
+  height: 83px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 2px 1px #E3DDDF;
+  background-color: white;
+}
+
 #trabi-form-card {
 
   padding: 20px;
   margin: 10px;
-  height: 150px;
+  height: 95px;
   border-radius: 8px;
   box-shadow: 1px 1px 2px 1px #E3DDDF;
   background-color: white;
 
   #rent-btn {
     margin-left: 10px;
-    margin-top: 10px;
+    // margin-top: 10px;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    color: $tan;
+    background-color: #00909e;
+    border-radius: 8px;
+    box-shadow: 2px 2px 3px rgba(0,144,158,0.4);
+    padding: 6px 17px;
+
+
+    &:hover {
+      text-decoration: none;
+      background-color: #49B0BA;
+    }
+
+    &:active {
+      outline: none;
+      box-shadow: 0px 0px 2px 4px rgba(0,144,158,0.4);
+    }
+
+    &:focus {
+      outline: none;
+
+    }
   }
 }

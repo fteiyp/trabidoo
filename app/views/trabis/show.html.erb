@@ -59,12 +59,18 @@
           <div class="trabi-form-group">
             <%= f.label "Date:" %>
             <%= f.date_field :start_date %>
-          </div>
-          <div>
             <%= f.submit class: 'trabi-btn', value: 'Book this Trabant', id: "rent-btn" %>
           </div>
+
         <% end %>
       </div>
+    </div>
+    <div id="trabi-btn-card">
+      <%= link_to 'Edit Trabant', edit_trabi_path, class: "trabi-btn"%>
+      <%= link_to 'Back to Search', trabis_path, class: "trabi-btn"%>
+      <%= link_to "Delete", trabi_path(@trabi), class: "trabi-btn",
+               method: :delete,
+               data: { confirm: "Are you sure?" } %>
     </div>
   </div>
 
@@ -72,6 +78,9 @@
 
 
 </div>
+
+
+
 <hr>
   <div id="title">
     <h4><strong>Reviews</strong></h4>
